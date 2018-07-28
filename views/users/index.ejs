@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+
+<div class="list-group">
+    
+  <% users.forEach(function(user) { %>
+    <a href="/users/<%= user._id %>" class="list-group-item">
+      <img class="img-thumbnail rounded-circle list-inline-item" src="<%= user.avatar %>" alt="nada">
+      <h3 class="list-inline-item"><%= user.username %></h3><br>
+      <small><%- user.userBackground.substring(0, 75) %>&#8230;</small>
+    </a>
+  <% }); %>
+
+</div>
+
+<% include ../partials/footer %>

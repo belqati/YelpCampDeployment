@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+<h1 class="formTitle">Login to YelpCamp!</h1>
+
+<div class="formSize">
+  <p>Almost there! Submit a new password and you should be all set.</p>
+
+  <form action="/resetpw/<%= token %>" method="POST">
+    <div class="form-group">
+      <label for="password">New Password</label>
+      <input class="form-control" type="password" placeholder="Enter a new password" name="password" value="" autofocus>
+    </div>
+    <div class="form-group">
+      <label>Confirm New Password</label>
+      <input class="form-control" type="password" placeholder="Confirm your new password" name="confirm" value="">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-lg btn-block btn-success" type="submit">Update Password</button>
+    </div>
+  </form>
+
+  <p>
+    <small>For your security, this reset token expires one hour after receipt.</small>
+  </p>
+
+  <a href="/campgrounds">Back to Campgrounds</a>
+</div>
+
+<% include ./partials/footer %>

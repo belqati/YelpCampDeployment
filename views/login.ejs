@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<h1 class="formTitle">Login to YelpCamp!</h1>
+
+<div class="formSize">
+  <form action="/login" method="POST">
+    <div class="form-group">
+      <label>Your Username</label>
+      <input autofocus class="form-control" type="text" placeholder="username" name="username">
+    </div>
+    <div class="form-group">
+      <label>Your Password</label>
+      <input class="form-control" type="password" placeholder="password" name="password">
+    </div>
+    <div class="form-group">
+      <input class="btn btn-lg btn-block btn-primary float-left" type="submit" value="Login">
+    </div>
+    <div class="form-group">
+      <a href="/forgotpw">Oops, I Forgot My Password...</a>
+    </div>
+  </form>
+  <a href="/campgrounds">Back to Campgrounds</a>
+</div>
+
+<% include ./partials/footer %>

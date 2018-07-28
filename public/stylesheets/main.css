@@ -1,0 +1,59 @@
+.formTitle {
+  text-align: center;
+}
+
+.formSize {
+  width: 70%;
+  margin: 25px auto;
+}
+
+.card {
+  margin-bottom: 10px;
+}
+
+.card-body, .card-footer {
+  padding-bottom: 0;
+}
+
+.img-thumbnail {
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+}
+
+.comment-thumbnail {
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+/*style for "hiding" custom-file-input*/
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.border-success, .border-warning {
+  border-left-width: 5px;
+}
+
+.currentUserComment {
+  color: #28A745;
+}
+
+#collapseComment, .collapseEditComment {
+  padding-top: 10px;
+}
+
+.navNoBorder {
+  border-left: none;
+}

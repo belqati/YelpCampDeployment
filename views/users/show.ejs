@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="card">
+  <img class="card-img-top" src="<%= user.avatar %>" alt="no image">
+  <div class="card-body">
+    <div class="card-title">
+      <h4><%= user.username %></h4>
+    </div>
+    <div class="card-text">
+      <p><%= user.userBackground %></p>
+      <h5>Check Out My Campsites</h5>
+
+      <!-- list user's campgrounds -->
+      <div class="list-group-flush">
+
+        <% campgrounds.forEach(function(campground) { %>
+          <a href="/campgrounds/<%= campground._id %>" class="list-group-item">
+            <img class="img-thumbnail rounded-circle list-inline-item" src="<%= campground.image %>" alt="nada">
+            <h6 class="list-inline-item"><%= campground.name %></h6><br>
+          </a>
+        <% }); %>
+
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <form action="/users/<%= user._id %>/?_method=DELETE" method="POST">
+      <div class="form-group">
+        <a class="btn btn-sm btn-outline-primary" href="/users">All Users</a>
+        <a class="btn btn-sm btn-outline-info" href="/campgrounds">All Campgrounds</a>
+
+        <!-- if no currentUser do nothing; if currentUser is author show buttons OR if currentUser isAdmin show buttons -->
+        <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+          <div class="float-right">
+            <a class="btn btn-sm btn-outline-warning" href="/users/<%= user._id %>/edit">Edit Profile</a>
+            <button class="btn btn-sm btn-outline-danger">Delete</button>
+          </div>
+        <% } %>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<% include ../partials/footer %>

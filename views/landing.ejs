@@ -1,0 +1,105 @@
+<!-- based on https://github.com/nax3t/background-slider -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YelpCamp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/landing.css">
+    <!-- modernizr makes the page more cross-browser friendly, esp older browsers; this is an old version, the new one support npm and cmd line interaction. -->
+    <!-- set to async so it loads w/ other assets on page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+  </head>
+
+  <body>
+    <!-- error handling -->
+    <div class="container-fluid">
+      <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+      <% } %>
+      <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+      <% } %>
+    </div>
+    
+    <div id="landing-header">
+      <h1 class="shadeOpText">YelpCamp</h1>
+      <h2 class="shadeOpText">Jump into your next adventure!</h2>
+
+      <a href="/campgrounds">
+      <!-- SVG embedded for CSS styling -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="landing-tent">
+      <g transform="matrix(1.7997,0,0,1.64661,-315.005,-140.083)">
+        <path d="M202.72,406.08C194.56,411.36 186.4,416.16 178.72,422.4C172,428.16 180.64,436.799 187.36,433.92C244,408 293.44,354.72 332.32,307.68C371.68,259.68 406.24,205.44 428.32,147.36C423.04,147.84 417.759,148.8 412.48,149.28C439.36,211.2 461.919,273.6 499.839,329.76C514.719,351.84 531.519,372.481 550.719,391.2C568.959,408.96 590.079,429.599 615.519,436.32C617.919,436.799 618.879,434.4 617.44,432.48C601.6,412.32 579.52,398.4 561.76,379.68C542.08,359.04 524.32,336 508.48,312C474.4,260.16 447.04,201.6 427.839,143.04C425.919,136.32 415.839,133.92 411.999,141.12C384.159,197.76 353.919,251.52 312.639,299.52C292.959,322.56 271.359,344.16 248.799,364.8C226.239,384.96 200.799,401.76 178.719,422.401C182.559,424.8 186.879,427.201 190.719,429.6C193.119,420.96 197.439,413.76 203.679,408C205.12,407.04 203.68,405.12 202.72,406.08Z"/>
+      </g>
+      <g transform="matrix(1.79831,0.0646727,-0.0706856,1.64534,-287.696,-156.207)">
+        <path d="M610.24,426.72C593.44,411.84 566.08,412.8 544.48,411.361C513.759,408.961 482.559,409.921 451.839,411.361C455.199,413.76 458.559,416.161 461.44,418.56C452.799,393.121 444.16,368.161 432.16,344.161C428.32,335.52 417.28,339.361 414.4,346.56C407.2,363.84 398.559,403.68 379.359,412.321C369.759,416.64 351.039,416.161 339.999,417.6C328.959,419.04 318.399,420 307.359,421.441C268.479,425.76 221.439,422.401 184.959,436.8C181.119,438.24 180.159,444.481 184.959,445.92C210.879,452.16 239.199,446.88 265.599,444.481C295.359,441.6 324.639,438.72 353.919,434.88C370.239,432.96 392.319,434.401 403.359,420.481C417.279,402.241 423.999,373.441 432.638,352.321C426.878,353.281 420.638,353.76 414.878,354.72C425.439,377.281 433.598,400.8 441.278,424.8C442.717,429.12 446.557,432.481 450.878,432C480.158,430.56 509.439,431.04 538.718,432C560.798,432.96 588.158,440.16 608.798,430.08C610.72,429.12 611.2,427.2 610.24,426.72Z"/>
+      </g>
+      <g transform="matrix(1.7997,0,0,1.64661,-291.165,-142.767)">
+        <path d="M273.28,217.44C282.88,222.72 291.04,229.44 300.16,235.68C302.08,237.12 304.96,236.64 307.36,235.68C309.28,234.72 309.76,233.28 310.72,231.36C311.68,228.96 310.72,226.08 308.8,224.64C300.16,216 289.12,211.68 277.12,209.28C272.32,208.32 268.96,215.04 273.28,217.44Z"/>
+      </g>
+      <g transform="matrix(1.7997,0,0,1.64661,-313.165,-114.588)">
+        <path d="M336.16,109.92C335.2,116.16 337.6,121.44 339.52,127.2C341.92,133.44 344.8,138.24 351.04,141.6C354.4,143.04 357.76,140.64 357.28,136.8C355.84,131.04 352.96,126.72 349.6,121.92C346.24,117.6 343.84,112.8 340,108.96C339.04,108 336.64,108 336.16,109.92Z"/>
+      </g>
+      <g transform="matrix(1.7997,0,0,1.85572,-336.631,-164.112)">
+        <path d="M479.2,153.12C482.559,151.68 485.92,150.24 488.8,147.84C491.68,145.44 494.56,143.04 496.481,140.64C498.401,138.24 496.481,132.96 493.121,134.4C489.761,135.84 486.401,137.76 483.041,139.68C479.681,141.6 477.281,144.48 474.881,147.36C472,150.24 475.84,154.56 479.2,153.12Z"/>
+      </g>
+      <g transform="matrix(1.7997,0,0,1.64661,-339.565,-141.425)">
+        <path d="M503.68,226.56C511.84,226.08 520,225.6 528.16,225.6C534.88,225.6 542.08,225.6 548.32,222.24C551.2,220.8 551.2,216 548.32,214.56C535.36,208.32 516.16,214.56 502.719,217.44C497.44,218.88 498.4,226.56 503.68,226.56Z"/>
+      </g>
+      <g transform="matrix(1.7997,0,0,1.64661,-336.632,-59.9121)">
+        <path d="M431.68,38.88C429.76,48.48 427.361,58.08 429.281,67.2C429.76,70.08 433.6,69.6 434.56,67.2C437.441,58.08 436,48.48 435.04,38.88C434.56,37.44 431.68,36.96 431.68,38.88Z"/>
+      </g>
+      <!-- fallback image if svg not supported -->
+      <image class="landing-tent" src="/pics/Tent.png" xlink:href="">
+      </svg>
+      </a>
+    </div>
+    <!-- tags and photo credit for bkgrnd images -->
+    <ul class="slideshow">
+      <li>
+        <div class="logoSlide">
+          <span class="logoInline">
+            <div class="unsplashLogo-uri"></div>
+            <span class="logoInline">Jeremy Bishop</span>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="logoSlide">
+          <span class="logoInline">
+            <div class="unsplashLogo-uri"></div>
+            <span class="logoInline">Robson Hatsukami Morgan</span>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="logoSlide">
+          <span class="logoInline">
+            <div class="unsplashLogo-uri"></div>
+            <span class="logoInline">Kalen Emsley</span>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="logoSlide">
+          <span class="logoInline">
+            <div class="unsplashLogo-uri"></div>
+            <span class="logoInline">Andreea Chidu</span>
+          </span>
+        </div>
+      </li>
+      <li>
+        <a class="logoSlide" href="https://unsplash.com/" target="_blank" title="Download free do whatever you want high-resolution photos">
+          <span class="logoInline">
+            <div class="unsplashLogo-uri"></div>
+            <span class="logoInline">Wei Pan</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+
+<% include partials/footer %>

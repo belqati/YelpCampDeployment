@@ -1,0 +1,155 @@
+<% include ../partials/header %>
+
+<div class="row">
+
+<!-- SIDEBAR W/ MAP -->
+  <div class="col-md-3">
+    <p class="lead">YelpCamp</p>
+    <div class="list-group">
+      <li class="list-group-item active">Info 1</li>
+      <li class="list-group-item">Info 1</li>
+      <li class="list-group-item">Info 1</li>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <!-- CAMPGROUND -->
+  <div class="col-md-9">
+    <div class="card">
+      <img class="card-img-top" src="<%= campground.image %>" alt="no image">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="float-right">$<%= campground.price %>/night</h4>
+          <h4><a href="#"><%= campground.name %></a></h4>
+        </div>
+        <div class="card-text">
+          <p><%= campground.description %></p>
+          <form action="/campgrounds/<%= campground._id %>/?_method=DELETE" method="POST">
+            <div class="form-group">
+
+              <!-- if no currentUser do nothing; if currentUser is author show buttons OR if currentUser isAdmin show buttons -->
+              <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                <div class="float-right">
+                  <a class="btn btn-sm btn-outline-warning" href="/campgrounds/<%= campground._id %>/edit"><i class="fas fa-edit"></i></a>
+                  <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+                </div>                  
+              <% } %>
+
+              <small>
+                <em>Submitted by 
+                  <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>,
+                  <%= moment(campground.createdAt).fromNow() %>
+                </em>
+              </small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="card">
+      <div class="card-header">
+        <a class="btn btn-outline-success btn-sm float-right" data-toggle="collapse" href="#collapseComment">Add <i class="fa fa-comment"></i></a>
+        <h4>Comments <i class="fas fa-comments"></i></h4>
+
+        <!-- Add Comment Toggle -->
+        <div class="collapse" id="collapseComment">
+          <div class="card card-body border-success">
+
+            <!-- check if logged in -->
+            <% if(!currentUser) { %>
+              <h5><a href="/login">Login</a> or <a href="/register">create an account</a> to contribute!</h5>
+            <% } %>
+
+            <!-- else give access to add comment form -->
+            <% if(currentUser) { %>
+              <h5>Add your <i class="far fa-comment"></i> to the conversation!</h5>
+              <form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                <div class="form-group">
+                  <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                </div>
+                <div class="form-group">
+                  <textarea autofocus class="form-control" type="text" cols="70" rows="3" name="comment[text]"></textarea>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-sm btn-outline-success">Submit <i class="fa fa-comment"></i></button>
+                </div>
+              </form>
+            <% } %>
+
+          </div>
+        </div>
+      </div>
+
+      <ul class="list-group list-group-flush">
+
+      <!-- if no comments -->
+      <% if(campground.comments.length === 0) { %>
+        <div class="card-body">
+          <div class="card-title text-muted">
+            <em>There are no comments for <%= campground.name %>. Be the first to contribute!</em>
+          </div>
+        </div>
+      <% } %>
+
+      <!-- else list comments -->
+      <% campground.comments.forEach(function(comment) { %>
+        <li class="list-group-item">
+          <span class="float-right">
+            <small>
+              <em><%= moment(comment.createdAt).fromNow() %></em>
+            </small>
+          </span>
+
+          <!-- color currentUser icon -->
+          <h6>
+            <% if(currentUser && currentUser._id.equals(comment.author.id)) { %>
+              <span class="currentUserComment"><i class="fa fa-user"></i></span>
+            <% } else { %>
+              <span><i class="fa fa-user"></i></span>
+            <% } %>
+              <a href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
+          </h6>
+          <p><%= comment.text %></p>
+
+          <div class="form-group">
+          <!-- if no currentUser do nothing; if currentUser is author|isAdmin show buttons -->
+          <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+            <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <a class="btn btn-sm btn-outline-warning" data-toggle="collapse" href="#collapseEdit<%= comment._id %>"><i class="fas fa-edit"></i></a>
+              <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+            </form>
+
+            <!-- toggle edit form -->
+            <div class="collapse collapseEditComment" id="collapseEdit<%= comment.id %>">
+              <div class="card card-body border-warning">
+                <h5>Edit your <i class="far fa-comment"></i></h5>
+                <form id="edit-comment-form<%= comment._id %>" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                  <div class="form-group">
+                    <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                  </div>
+                  <div class="form-group">
+                    <textarea autofocus class="form-control" type="text" cols="70" rows="3" name="comment[text]" form="edit-comment-form<%= comment._id %>"><%= comment.text %></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-sm btn-outline-warning">Update <i class="fa fa-comment"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          <% } %>
+
+          </div>
+        </li>
+      <% }) %>
+
+      </ul>
+    </div>
+    <a class="btn btn-sm btn-outline-info" href="/campgrounds"><i class="fas fa-sign"></i> All Campgrounds</a>
+  </div>
+</div>
+
+<!-- initialize data for Google Maps JS API and Geocoding API -->
+<% include ../partials/googleGeocodingInit %>
+<% include ../partials/footer %>

@@ -1,0 +1,8 @@
+<!-- initialize data for Google Places API, uses their library for location dropdown; also uses restricted API key... -->
+<script type="text/javascript">
+  function placesSearch() {
+    let input = document.getElementById("placesInput");
+    let autocomplete = new google.maps.places.Autocomplete(input);
+  }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdnw17fOSB4DjbPqYn4jjqVCcEfQoFOW8&libraries=places&callback=placesSearch"></script>

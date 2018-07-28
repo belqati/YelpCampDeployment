@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- make the site mobile responsive  -->
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>YelpCamp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+  </head>
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light" style="margin-bottom: 10px">
+    <a class="navbar-brand" href="/">YelpCamp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav ml-auto">
+
+        <% if(!currentUser) { %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/login"><i class="fas fa-user"></i> Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Create an Account</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/logout"><i class="fas fa-user-check"></i> Signed in as <%= currentUser.username %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><i class="fas fa-user-times"></i> Logout</a>
+          </li>
+        <% } %>
+
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+
+    <!-- error is empty array, thus not falsey, thus necessary to check for length greater than zero -->
+    <% if(error && error.length > 0) { %>
+      <!-- on error due to auth rejection show flash message -->
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <% if(success && success.length > 0) { %>
+      <!-- on successful auth show flash message -->
+      <div class="alert alert-info" role="alert">
+        <%= success %>
+      </div>
+    <% } %>
+
+  </div>
+
+<body> 
+  <div class="container-fluid">
+

@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<h1 class="formTitle">Login to YelpCamp!</h1>
+
+<div class="formSize">
+  <p>So you forgot your password, no problem! Send us the email we have on file for you, and we'll send you a password reset token.</p>
+
+  <form action="/forgotpw" method="POST">
+    <div class="form-group">
+      <label for="email">Your Email</label>
+      <input autofocus class="form-control" type="email" placeholder="Enter your registered YelpCamp email" name="email">
+    </div>
+    <div class="form-group">
+      <input class="btn btn-lg btn-block btn-danger" type="submit" value="Reset Password">
+    </div>
+  </form>
+
+  <p>
+    <small>For your security, your reset token will expire after one hour.</small>
+  </p>
+
+  <a href="/campgrounds">Back to Campgrounds</a>
+</div>
+
+<% include ./partials/footer %>

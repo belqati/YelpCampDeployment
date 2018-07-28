@@ -1,0 +1,30 @@
+<!-- initialize data for Google Maps JS API and Geocoding API -->
+<script>
+  function initMap() {
+    var lat = <%= campground.lat %>;
+    var lng = <%= campground.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= campground.name %><br />
+      <%= campground.location %></strong>
+      <p><%= campground.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<!-- use package dotenv for hiding and loading persisting environment variables located in .env file in root project dir; contains geocoder api key without restrictions, thus hidden on server side; a second key is used in url below that is restricted since anyone can see it (to localhost right now; see Ian's slides for url suggestions for deployment version) -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdnw17fOSB4DjbPqYn4jjqVCcEfQoFOW8&callback=initMap"></script>
