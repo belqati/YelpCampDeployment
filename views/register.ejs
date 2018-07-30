@@ -3,15 +3,24 @@
 <h1 class="formTitle">Sign Up with Us!</h1>
 
 <div class="formSize">
-  <form action="/register" method="POST">
+  <!-- enctype gives multer middleware access to form input -->
+  <form action="/register" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label>Username</label>
       <input autofocus class="form-control" type="text" placeholder="username" name="username">
     </div>
+
+    <!-- custom-file JS and styling based on tut by Osvaldas Valutis at https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ -->
     <div class="form-group">
+      <input type="file" name="avatar" id="avatar" class="inputfile" accept="image/*" required/>
+      <label for="avatar" class="btn btn-info btn-block"><i class="fas fa-cloud-upload-alt"></i> <span>Choose an image file (.jpg .jpeg .png)</span></label>
+    </div>
+
+<!--     <div class="form-group">
       <label>Avatar</label>
       <input class="form-control" type="text" placeholder="avatar image url" name="avatar">
     </div>
+ -->    
     <div class="row">
       <div class="form-group col">
         <label>Firstname</label>

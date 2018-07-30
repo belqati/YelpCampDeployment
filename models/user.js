@@ -9,6 +9,7 @@ let userSchema = new mongoose.Schema({
     default: false
   },
   avatar: String,
+  avatarId: String,
   firstName: String,
   lastName: String,
   email: {
