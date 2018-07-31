@@ -87,8 +87,8 @@ router.post("/register", upload.single("avatar"), function(req, res) {
       // login/auth newly created user
       passport.authenticate("local")(req, res, function() {
         req.flash("success", "Welcome to YelpCamp " + user.username + "!")
-        res.render("/users");
-        // res.render("users/show", {user: user});
+        // res.render("/users");
+        res.redirect("/users/" + user._id);
       });
     });
   });
