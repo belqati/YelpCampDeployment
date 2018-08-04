@@ -46,9 +46,8 @@ router.get("/", function(req, res) {
   });
 });
 
-// NEW (register) and CREATE routes for new users are handled as auth routes in routes/index.js
 // AUTHENTICATION routes
-// Register routes
+// NEW/Register route for new user
 router.get("/register", function(req, res) {
   res.render("users/register");
 });
@@ -88,7 +87,7 @@ router.post("/", upload.single("avatar"), function(req, res) {
     // adds newUser and hashed password to DB via passport-mongoose
     User.register(newUser, req.body.password, function(err, user) {
       if(err) {
-        // passport has built in error messages, so writing them is not necessesary
+        // built-in passport error message
         req.flash("error", err.message);
         return res.redirect("back");
       }
@@ -99,12 +98,12 @@ router.post("/", upload.single("avatar"), function(req, res) {
         res.redirect("/users/" + user._id);
       });
     });
+
   });
 });
 
 // SHOW route -- shows all info for a specific user
 router.get("/:user_id", function(req, res) {
-  // res.render("users/show");
   // find user via MongoDB id, populate comments array from comments collection
   User.findById(req.params.user_id, function(err, itemObj) {
     // check if err OR itemObj is null
@@ -150,13 +149,10 @@ router.put("/:user_id", middleware.checkUserOwnership, upload.single("avatar"), 
       res.redirect("back");
     } else {
 
-      // look for a requested update image via multer req.file object
+      // update avatar (see CREATE route)
       if (req.file) {
-        // try-catch used to run await and catch any errors
         try {
-          // delete old image from cloudinary; invalidate option deletes cached url as well--otherwise could linger for up to 30 days
           await cloudinary.v2.uploader.destroy(user.avatarId, {invalidate: true});
-          // upload and assign new image and Id
           // for image moderation add with folder option {..., moderation: "webpurify"} or {..., moderation: "aws_rek"}
           let result = await cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/users"});
           user.avatarId = result.public_id;
@@ -167,13 +163,36 @@ router.put("/:user_id", middleware.checkUserOwnership, upload.single("avatar"), 
         }
       }
 
+      // function to check for and update new password (see CREATE route)
+      function newPW(){
+        if(req.body.password === req.body.confirm) {
+          user.setPassword(req.body.password, function(err) {
+            user.save();
+          });
+        } else {
+          req.flash("error", "Oops, passwords do not match.");
+          return res.redirect('back');
+        }
+      }
+
       // update data from other form fields
       user.username = req.body.user.username;
       user.firstName = req.body.user.firstName;
       user.lastName = req.body.user.lastName;
       user.userBackground = req.body.user.userBackground;
       user.email = req.body.user.email;
-      user.save();
+      // save pic and form data to user object
+      await user.save();
+      // if new password save new hash to user object
+      await newPW();
+
+      // log user back in after update
+      req.logIn(user, function(err) {
+        if(err) {
+          req.flash("error", err.message);
+          return res.redirect("back");
+        }
+      });
 
       // check if multer fileFilter added "fileValidationError" to req object 
       if(req.fileValidationError) {
@@ -181,9 +200,8 @@ router.put("/:user_id", middleware.checkUserOwnership, upload.single("avatar"), 
         return res.redirect("back");
       }
 
-      req.flash("success", "Your profile was successfully updated!")
+      req.flash("success", "Your profile was successfully updated!");
       res.redirect("/users/" + user._id);
-
 
     }
   });
@@ -191,7 +209,7 @@ router.put("/:user_id", middleware.checkUserOwnership, upload.single("avatar"), 
 
 // DESTROY route -- remove specific user
 router.delete("/:user_id", middleware.checkUserOwnership, function(req, res) {
-  // res.send("This is the DESTROY user route!");
+
   User.findById(req.params.user_id, async function(err, user) {
     if(err) {
       req.flash("error", err.message);
