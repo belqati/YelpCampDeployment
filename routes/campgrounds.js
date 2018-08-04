@@ -193,15 +193,15 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
   Campground.findById(req.params.id, async function(err, campground){
 
     if(err){
-        req.flash("error", err.message);
-        res.redirect("back");
+      req.flash("error", err.message);
+      res.redirect("back");
     } else {
       // look for a requested update image via multer req.file object
       if (req.file) {
         // try-catch used to run await and catch any errors
         try {
           // delete old image from cloudinary; invalidate option deletes cached url as well--otherwise could linger for up to 30 days
-          await cloudinary.v2.uploader.destroy(campground.imageId, {invalidate: true, moderation: "aws_rek"});
+          await cloudinary.v2.uploader.destroy(campground.imageId, {invalidate: true});
           // upload and assign new image and imageId
           // for image moderation add with folder option {..., moderation: "webpurify"} or {..., moderation: "aws_rek"}
           let result = await cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/campgrounds"});
