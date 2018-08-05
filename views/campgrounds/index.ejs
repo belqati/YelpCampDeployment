@@ -3,33 +3,19 @@
 <header class="jumbotron">
   <h1>Welcome to YelpCamp!</h1>
   <p>Explore our hand-picked campgrounds</p>
-  <form action="/campgrounds" method="GET">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search campgrounds..." name="search">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <a class="btn btn-secondary" href="/campgrounds/new">New <i class="fas fa-map-marked-alt"></i></a>
-        </div>
-      </div>
-    </div>
-  </form>
+  <a class="btn btn-secondary" href="/campgrounds/new">Add a New Campground <i class="fas fa-map-marked-alt"></i></a>
 </header>
 
 <div class="row">
   <% campgrounds.forEach(function(campground) { %>
     <div class="col-lg-3 col-sm-6">
       <div class="card">
-        <img class="card-img" src="<%= campground.image %>" alt="nada">
-        <div class="card-body">
-          <a href="/campgrounds/<%= campground._id %>"><h4 class="card-title"><%= campground.name %></h4></a>
-        </div>
+        <a href="/campgrounds/<%= campground._id %>">
+          <img class="card-img" src="<%= campground.image %>" alt="nada">
+          <div class="card-body">
+            <h4 class="card-title"><%= campground.name %></h4>
+          </div>
+        </a>
       </div>
     </div>
   <% }); %>
