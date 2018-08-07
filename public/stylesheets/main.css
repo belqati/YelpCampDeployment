@@ -57,17 +57,19 @@
 #searchCampgrounds {
   padding-right: 0px;
   padding-left: 0px;
-  margin-left: 10px;
   width: 0px;
   transition: width .5s;
   -webkit-transition: width .5s;
 }
 
 #searchCampgrounds:focus {
-  padding-left: 10px;
-  width: 300px;
+  width: 230px;
 }
 
 .navNoBorder {
   border-left: none;
+}
+
+.userList {
+  padding: 20px 0 20px 0;
 }

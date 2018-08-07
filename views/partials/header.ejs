@@ -27,24 +27,23 @@
           </li>
         <% } else { %>
           <li class="nav-item active">
-            <a class="nav-link" href="/logout"><i class="fas fa-user-check"></i> Signed in as <%= currentUser.username %></a>
+            <a class="nav-link" href="/logout"><i class="fas fa-user-check"></i> <%= currentUser.username %></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout"><i class="fas fa-user-times"></i> Logout</a>
           </li>
         <% } %>
 
+        <!-- search bar -->
         <li class="nav-item active">
-          <div>
-              <form action="/campgrounds" method="GET">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search campgrounds&#8230;" name="search" id="searchCampgrounds">
-                  <div class="input-group-append">
-                    <label class="input-group-text" for="searchCampgrounds"><i class="fas fa-search"></i></label>
-                  </div>
-                </div>
-              </form>
-          </div>
+          <form action="/campgrounds" method="GET">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder=" Search campgrounds&#8230;" name="search" id="searchCampgrounds">
+              <div class="input-group-append">
+                <label class="input-group-text" for="searchCampgrounds"><i class="fas fa-search"></i></label>
+              </div>
+            </div>
+          </form>
         </li>
 
       </ul>
