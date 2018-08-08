@@ -43,55 +43,30 @@ cloudinary.config({
 
 // INDEX route -- show all campgrounds
 router.get("/", function(req, res) {
-  // pagination for all camps and search results
+  // pagination for campgrounds
   let perPage = 8;
   let pageQuery = parseInt(req.query.page);
   let pageNumber = pageQuery ? pageQuery : 1;
   let noMatch = null;
-  let userSearch = req.query.search;
-  if(userSearch) {
-    let regex = new RegExp(escapeRegex(userSearch), "gi");
-    Campground.find({name: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allCampgrounds) {
-      Campground.count({name: regex}).exec(function(err, count) {
-        if(err) {
-          console.log(err);
-          res.redirect("back");
-        } else {
-          if(allCampgrounds.length < 1) {
-            req.flash("error", "Sorry, \"" + userSearch + "\" yields no matches. Please try a different search.");
-            return res.redirect("back");
-          }
-          // render index and send object with variables for js manipulation in ejs
-          res.render("campgrounds/index", {
-            noMatch: noMatch,
-            campgrounds: allCampgrounds,
-            current: pageNumber,
-            pages: Math.ceil(count / perPage),
-            search: userSearch
-          });
-        }
-      });
+  
+  // GET all campgrounds from DB
+  Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allCampgrounds) {
+    Campground.count().exec(function(err, count) {
+      if(err) {
+        console.log(err);
+        req.flash("error", err.message);
+        return res.redirect("back");
+      } else {
+        res.render("campgrounds/index", {
+          campgrounds: allCampgrounds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
     });
-  } else {
-    // GET all campgrounds from DB
-    Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allCampgrounds) {
-      Campground.count().exec(function(err, count) {
-        if(err) {
-          console.log(err);
-          req.flash("error", err.message);
-          return res.redirect("back");
-        } else {
-          res.render("campgrounds/index", {
-            campgrounds: allCampgrounds,
-            current: pageNumber,
-            pages: Math.ceil(count / perPage),
-            noMatch: noMatch,
-            search: false
-          });
-        }
-      });
-    });
-  }
+  });
 });
 
 // CREATE route -- add new campground to DB from form, redirect to INDEX route

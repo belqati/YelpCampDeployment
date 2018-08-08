@@ -21,7 +21,7 @@
   <% }); %>
 </div>
 
-<!-- navigate all campgrounds or search results -->
+<!-- navigate all campgrounds -->
 <nav>
   <% if (pages && pages > 0) { %>
     <ul class="pagination pagination-sm justify-content-center">
@@ -29,14 +29,14 @@
       <% if (current == 1) { %>
         <li class="disabled page-item"><a class="page-link"><i class="fas fa-angle-double-left"></i></a></li>
       <% } else { %>
-        <li class="page-item"><a class="page-link" href="/campgrounds<%if(search){%>?search=<%=search%><%}%>"><i class="fas fa-angle-double-left"></i></a></li>
+        <li class="page-item"><a class="page-link" href="/campgrounds"><i class="fas fa-angle-double-left"></i></a></li>
       <% } %>
 
       <!-- go to previous page -->
       <% if (current == 1) { %>
         <li class="disabled page-item"><a class="page-link"><i class="fas fa-angle-left"></i></a></li>
       <% } else { %>
-        <li class="page-item"><a class="page-link" href="/campgrounds?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>"><i class="fas fa-angle-left"></i></a></li>
+        <li class="page-item"><a class="page-link" href="/campgrounds?page=<%= Number(current) - 1 %>"><i class="fas fa-angle-left"></i></a></li>
       <% } %>
 
       <!-- go to specific page -->
@@ -48,7 +48,7 @@
         <% if (i == current) { %>
           <li class="page-item active"><a class="page-link"><%= i %></a></li>
         <% } else { %>
-          <li class="page-item"><a class="page-link navNoBorder" href="/campgrounds?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a></li>
+          <li class="page-item"><a class="page-link navNoBorder" href="/campgrounds?page=<%= i %>"><%= i %></a></li>
         <% } %>
         <% if (i == Number(current) + 3 && i < pages) { %>
           <li class="disabled page-item"><a class="page-link navNoBorder"><i class="fas fa-ellipsis-h"></i></a></li>
@@ -59,14 +59,14 @@
       <% if (current == pages) { %>
         <li class="disabled page-item"><a class="page-link navNoBorder"><i class="fas fa-angle-right"></i></a></li>
       <% } else { %>
-        <li class="page-item"><a class="page-link navNoBorder" href="/campgrounds?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>"><i class="fas fa-angle-right"></i></a></li>
+        <li class="page-item"><a class="page-link navNoBorder" href="/campgrounds?page=<%= Number(current) + 1 %>"><i class="fas fa-angle-right"></i></a></li>
       <% } %>
 
       <!-- go to last page -->
       <% if (current == pages) { %>
         <li class="disabled page-item"><a class="page-link"><i class="fas fa-angle-double-right"></i></a></li>
       <% } else { %>
-        <li class="page-item"><a class="page-link" href="/campgrounds?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>"><i class="fas fa-angle-double-right"></i></a></li>
+        <li class="page-item"><a class="page-link" href="/campgrounds?page=<%= pages %>"><i class="fas fa-angle-double-right"></i></a></li>
       <% } %>
     </ul>
   <% } %>

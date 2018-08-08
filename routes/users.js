@@ -35,64 +35,30 @@ cloudinary.config({
 
 // INDEX route -- show all users
 router.get("/", function(req, res) {
-  // pagination for all camps and search results
+  // pagination for all users
   let perPage = 6;
   let pageQuery = parseInt(req.query.page);
   let pageNumber = pageQuery ? pageQuery : 1;
   let noMatch = null;
-  let userSearch = req.query.search;
-  if(userSearch) {
-    let regex = new RegExp(escapeRegex(userSearch), "gi");
-    User.find({username: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allUsers) {
-      User.count({username: regex}).exec(function(err, count) {
-        if(err) {
-          console.log(err);
-          res.redirect("back");
-        } else {
-          if(allUsers.length < 1) {
-            req.flash("error", "Sorry, \"" + userSearch + "\" yields no matches. Please try a different search.");
-            return res.redirect("back");
-          }
-          // render index and send object with variables for js manipulation in ejs
-          res.render("users/index", {
-            noMatch: noMatch,
-            users: allUsers,
-            current: pageNumber,
-            pages: Math.ceil(count / perPage),
-            search: userSearch
-          });
-        }
-      });
+
+  // GET all users from DB
+  User.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allUsers) {
+    User.count().exec(function(err, count) {
+      if(err) {
+        console.log(err);
+        req.flash("error", err.message);
+        return res.redirect("back");
+      } else {
+        res.render("users/index", {
+          users: allUsers,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
     });
-  } else {
-  // // GET all users from DB
-  // User.find({}, function(err, itemObj) {
-  //   if(err) {
-  //     req.flash("error", "Oops, something went wrong!");
-  //     console.log(err);
-  //   } else {
-  //     res.render("users/index", {users: itemObj});
-  //   }
-  // });
-    // GET all users from DB
-    User.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allUsers) {
-      User.count().exec(function(err, count) {
-        if(err) {
-          console.log(err);
-          req.flash("error", err.message);
-          return res.redirect("back");
-        } else {
-          res.render("users/index", {
-            users: allUsers,
-            current: pageNumber,
-            pages: Math.ceil(count / perPage),
-            noMatch: noMatch,
-            search: false
-          });
-        }
-      });
-    });
-  }
+  });
 });
 
 // AUTHENTICATION routes

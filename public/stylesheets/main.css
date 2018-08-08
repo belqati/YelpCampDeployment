@@ -21,6 +21,12 @@
   height: 60px;
 }
 
+.search-thumbnail {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
 .comment-thumbnail {
   object-fit: cover;
   width: 30px;
@@ -72,4 +78,8 @@
 
 .userList {
   padding: 20px 0 20px 0;
+}
+
+.searchList {
+  padding: 5px;
 }

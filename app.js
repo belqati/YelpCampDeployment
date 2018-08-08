@@ -23,6 +23,7 @@ let commentRoutes = require("./routes/comments");
 let campgroundRoutes = require("./routes/campgrounds");
 let indexRoutes = require("./routes/index");
 let userRoutes = require("./routes/users");
+let searchResults = require("./routes/search");
 
 // config server and DB
 mongoose.connect("mongodb://localhost/yelp_camp");
@@ -68,6 +69,7 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/users", userRoutes);
+app.use("/searchResults", searchResults);
 
 app.listen(3000, function() {
   console.log("YelpCamp Server has started!");
