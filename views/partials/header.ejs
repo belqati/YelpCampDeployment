@@ -4,13 +4,18 @@
     <!-- make the site mobile responsive  -->
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>YelpCamp</title>
+    <link rel="icon" type="image/x-icon" href="pics/tent-green-sm.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
   </head>
 
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="/">YelpCamp</a>
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #002B04;">
+    <a class="navbar-brand" href="/">
+      <img src="/pics/tent-white-sm.ico" alt="" id="brandSize">
+      YelpCamp
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,25 +55,4 @@
     </div>
   </nav>
 
-  <div class="container-fluid">
-
-    <!-- error is empty array, thus not falsey, thus necessary to check for length greater than zero -->
-    <% if(error && error.length > 0) { %>
-      <!-- on error due to auth rejection show flash message -->
-      <div class="alert alert-danger" role="alert">
-        <%= error %>
-      </div>
-    <% } %>
-
-    <% if(success && success.length > 0) { %>
-      <!-- on successful auth show flash message -->
-      <div class="alert alert-info" role="alert">
-        <%= success %>
-      </div>
-    <% } %>
-
-  </div>
-
-<body> 
-  <div class="container-fluid">
-
+<body>

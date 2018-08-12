@@ -1,17 +1,165 @@
+html {
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  font-family: Ubuntu;
+  color: #002B04;
+}
+
+footer {
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px 0 15px;
+  margin-bottom: 0;
+  background-color: #002B04;
+  opacity: .7;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+footer:hover {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 7.5vw;
+  font-weight: bolder;
+  text-shadow:  0 0 1px #39C745;
+  opacity: .8;
+}
+
+h2 {
+  font-size: 3.5vw;
+  font-weight: bolder;
+  opacity: .8;
+}
+
+h3, h4, h5, h6 {
+  font-weight: bolder;
+}
+
+#activePage {
+  background-color: #00750A;
+  border-color: #39C745;
+}
+
+#activePage:hover {
+  color: #39C745;
+}
+
+.textLink:link, .textLink:visited, .textLink:active, .page-link:link, .page-link:visited, .page-link:active {
+  color: #00750A;
+  text-decoration: none;
+}
+
+.textLink:hover, .page-link:hover {
+  color: #39C745;
+  text-decoration: none;
+}
+
+.footerLink:link, .footerLink:visited, .footerLink:active {
+  color: white;
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 1.2em;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+.footerLink:hover {
+  color: #39C745;
+  text-decoration: none;
+  font-size: 1.4em;
+}
+
+.formSize {
+  background-color: rgba(255,255,255, 0.7);
+  padding: 10px 30px 10px 30px;
+  border-radius: 5px;
+}
+
+.alert-warning {
+  background-color: rgba(255,243,205, 0.7);
+}
+
+.alert-info {
+  background-color: rgba(209,236,241, 0.7);
+}
+
+.backgroundPic {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .5), rgba(255, 255, 255, .8)), url(https://res.cloudinary.com/nahnahgames/image/upload/v1533855623/yelp_camp/hUttXQw48No.jpg);
+  background-repeat: no-repeat;
+  /*fill page with pic*/
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*cover entire page with pic*/
+  background-size: cover;
+  /*center pic*/
+  background-position: 50% 50%;
+  background-attachment: fixed;
+}
+
+.titleSpacing {
+  padding-top: 80px;
+}
+
+.paginate {
+  padding-top: 10px;
+  padding-bottom: 45px;
+}
+
+.navbar {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  opacity: .7;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+.navbar:hover {
+  opacity: 1;
+}
+
+#brandSize {
+  width: 30px;
+  transition: width .5s;
+  -webkit-transition: width .5s;
+}
+
+#brandSize:hover {
+  width: 35px;
+}
+
 .formTitle {
   text-align: center;
 }
 
 .formSize {
-  width: 70%;
+  width: 95%;
   margin: 25px auto;
 }
 
-.card {
-  margin-bottom: 10px;
+.jumbotron {
+  background-color: rgba(255,255,255, 0.7);
 }
 
-.card-body, .card-footer {
+.card, #map {
+  margin-bottom: 10px;
+  box-shadow: 4px 4px 6px #979797;
+  background-color: rgba(255,255,255, 0.7);
+}
+
+.card-body, .card-footer, .card-header, #commentList {
+  padding-top: 10px;
   padding-bottom: 0;
 }
 
@@ -36,6 +184,8 @@
 #map {
   height: 400px;
   width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 /*style for "hiding" custom-file-input*/
@@ -77,9 +227,50 @@
 }
 
 .userList {
-  padding: 20px 0 20px 0;
+  z-index: 0;
+  position: relative;
+}
+
+.userListItem {
+  padding: 5px;
+}
+
+.userListBackground {
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.footerSpace {
+  margin-bottom: 70px;
+}
+
+.footerWrapper {
+  margin-bottom: 10px;
+}
+
+.list-group-item {
+  background-color: rgba(255,255,255, 0.7);
 }
 
 .searchList {
-  padding: 5px;
+  padding: 3px;
+}
+
+#addCamp {
+  margin-top: 15px;
+  background-color: #00750A;
+  border-color: #39C745;
+}
+
+#addCamp:hover {
+  background-color: #39C745;
+  border-color: #00750A;
+}
+
+#userSearchList {
+  padding-top: 10px;
 }

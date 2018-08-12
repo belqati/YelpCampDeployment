@@ -1,19 +1,20 @@
 <% include ../partials/header %>
+<% include ../partials/backgroundPic %>
 
 <header class="jumbotron">
   <h1>Welcome to YelpCamp!</h1>
-  <p>Explore our hand-picked campgrounds</p>
-  <a class="btn btn-secondary" href="/campgrounds/new">Add a New Campground <i class="fas fa-map-marked-alt"></i></a>
+  <h2>Explore our hand-picked campgrounds</h2>
+  <a class="btn btn-secondary" href="/campgrounds/new" id="addCamp">Add a New Campground <i class="fas fa-map-marked-alt"></i></a>
 </header>
 
 <div class="row">
   <% campgrounds.forEach(function(campground) { %>
     <div class="col-lg-3 col-sm-6">
       <div class="card">
-        <a href="/campgrounds/<%= campground._id %>">
+        <a href="/campgrounds/<%= campground._id %>" class="textLink">
           <img class="card-img" src="<%= campground.image %>" alt="nada">
           <div class="card-body">
-            <h4 class="card-title"><%= campground.name %></h4>
+            <h3 class="card-title"><%= campground.name %></h3>
           </div>
         </a>
       </div>
@@ -22,7 +23,7 @@
 </div>
 
 <!-- navigate all campgrounds -->
-<nav>
+<nav class="paginate">
   <% if (pages && pages > 0) { %>
     <ul class="pagination pagination-sm justify-content-center">
       <!-- for first page -->
@@ -46,7 +47,7 @@
       <% } %>
       <% for (; i <= (Number(current) + 3) && i <= pages; i++) { %>
         <% if (i == current) { %>
-          <li class="page-item active"><a class="page-link"><%= i %></a></li>
+          <li class="page-item active"><a class="page-link" id="activePage"><%= i %></a></li>
         <% } else { %>
           <li class="page-item"><a class="page-link navNoBorder" href="/campgrounds?page=<%= i %>"><%= i %></a></li>
         <% } %>

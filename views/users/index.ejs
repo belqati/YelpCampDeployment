@@ -1,17 +1,21 @@
 <% include ../partials/header %>
+<% include ../partials/backgroundPic %>
 
+<h1>Explore Our Community!</h1>
 <div class="list-group userList">
   <% users.forEach(function(user) { %>
-    <a href="/users/<%= user._id %>" class="list-group-item">
-      <img class="img-thumbnail rounded-circle list-inline-item" src="<%= user.avatar %>" alt="nada">
-      <h3 class="list-inline-item"><%= user.username %></h3><br>
-      <small><%- user.userBackground.substring(0, 75) %>&#8230;</small>
+    <a href="/users/<%= user._id %>" class="list-group-item userListItem textLink">
+      <div class="userListBackground" style="background-image: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, .3)), url(<%= user.avatar %>);">
+        <img class="img-thumbnail rounded-circle list-inline-item" src="<%= user.avatar %>" alt="nada">
+        <h3 class="list-inline-item"><%= user.username %></h3><br>
+        <small><%- user.userBackground.substring(0, 75) %>&#8230;</small>
+      </div>
     </a>
   <% }); %>
 </div>
 
 <!-- navigate all users or search results -->
-<nav>
+<nav class="paginate">
   <% if (pages && pages > 0) { %>
     <ul class="pagination pagination-sm justify-content-center">
       <!-- for first page -->
@@ -35,7 +39,7 @@
       <% } %>
       <% for (; i <= (Number(current) + 3) && i <= pages; i++) { %>
         <% if (i == current) { %>
-          <li class="page-item active"><a class="page-link"><%= i %></a></li>
+          <li class="page-item active"><a class="page-link" id="activePage"><%= i %></a></li>
         <% } else { %>
           <li class="page-item"><a class="page-link navNoBorder" href="/users?page=<%= i %>"><%= i %></a></li>
         <% } %>

@@ -1,15 +1,16 @@
 <% include ../partials/header %>
+<% include ../partials/backgroundPic %>
 
+<h1><%= campground.name %></h1>
 <div class="row">
 
 <!-- SIDEBAR W/ MAP -->
   <div class="col-md-3">
-    <p class="lead">YelpCamp</p>
-    <div class="list-group">
+<!--     <div class="list-group">
       <li class="list-group-item active">Info 1</li>
       <li class="list-group-item">Info 1</li>
       <li class="list-group-item">Info 1</li>
-    </div>
+    </div> -->
     <div id="map"></div>
   </div>
 
@@ -20,27 +21,38 @@
       <div class="card-body">
         <div class="card-title">
           <h4 class="float-right">$<%= campground.price %>/night</h4>
-          <h4><a href="#"><%= campground.name %></a></h4>
+          <h4><a href="#" class="textLink"><%= campground.name %></a></h4>
         </div>
         <div class="card-text">
           <p><%= campground.description %></p>
           <form action="/campgrounds/<%= campground._id %>/?_method=DELETE" method="POST">
             <div class="form-group">
 
+              <div>
+                <span class="float-right">
+                  <small>
+                    <em><%= moment(campground.createdAt).fromNow() %></em>
+                  </small>
+                </span>
+                <small>
+                  <em>Submitted by 
+                    <a class="textLink" href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>
+                  </em>
+                </small>
+              </div>
               <!-- if no currentUser do nothing; if currentUser is author show buttons OR if currentUser isAdmin show buttons -->
+              <p>
               <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
                 <div class="float-right">
                   <a class="btn btn-sm btn-outline-warning" href="/campgrounds/<%= campground._id %>/edit"><i class="fas fa-edit"></i></a>
                   <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
                 </div>                  
               <% } %>
-
-              <small>
-                <em>Submitted by 
-                  <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>,
-                  <%= moment(campground.createdAt).fromNow() %>
-                </em>
-              </small>
+              </p>
+              <p>
+                <a class="btn btn-sm btn-outline-info" href="/campgrounds"><i class="fas fa-sign"></i> Campgrounds</a>
+                <a class="btn btn-sm btn-outline-primary" href="/users"><i class="fas fa-users"></i></a>
+              </p>
             </div>
           </form>
         </div>
@@ -48,7 +60,7 @@
     </div>
 
     <!-- COMMENTS -->
-    <div class="card">
+    <div class="card footerSpace">
       <div class="card-header">
         <a class="btn btn-outline-success btn-sm float-right" data-toggle="collapse" href="#collapseComment">Add <i class="fa fa-comment"></i></a>
         <h4>Comments <i class="fas fa-comments"></i></h4>
@@ -59,7 +71,7 @@
 
             <!-- check if logged in -->
             <% if(!currentUser) { %>
-              <h5><a href="/login">Login</a> or <a href="/register">create an account</a> to contribute!</h5>
+              <h5><a class="textLink" href="/login">Login</a> or <a class="textLink" href="/register">create an account</a> to contribute!</h5>
             <% } %>
 
             <!-- else give access to add comment form -->
@@ -95,7 +107,7 @@
 
       <!-- else list comments -->
       <% campground.comments.forEach(function(comment) { %>
-        <li class="list-group-item">
+        <li class="list-group-item" id="commentList">
           <span class="float-right">
             <small>
               <em><%= moment(comment.createdAt).fromNow() %></em>
@@ -109,7 +121,7 @@
             <% } else { %>
               <span><i class="fa fa-user"></i></span>
             <% } %>
-              <a href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
+              <a class="textLink" href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
           </h6>
           <p><%= comment.text %></p>
 
@@ -146,7 +158,6 @@
 
       </ul>
     </div>
-    <a class="btn btn-sm btn-outline-info" href="/campgrounds"><i class="fas fa-sign"></i> All Campgrounds</a>
   </div>
 </div>
 

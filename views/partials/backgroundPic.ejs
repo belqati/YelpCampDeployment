@@ -1,0 +1,21 @@
+<!-- provides a background image for most of the site, separate from the header partial and landing page -->
+  <div class="backgroundPic">
+    <div class="container-fluid ">
+    <div class="">
+      <div class="titleSpacing ">
+
+        <!-- ERROR HANDLING -->
+        <!-- error is empty array, thus not falsey, thus necessary to check for length greater than zero -->
+        <% if(error && error.length > 0) { %>
+          <!-- on error due to auth rejection show flash message -->
+          <div class="alert alert-warning" role="alert">
+            <%= error %>
+          </div>
+        <% } %>
+
+        <% if(success && success.length > 0) { %>
+          <!-- on successful auth show flash message -->
+          <div class="alert alert-info" role="alert">
+            <%= success %>
+          </div>
+        <% } %>

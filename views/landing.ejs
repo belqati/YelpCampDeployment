@@ -1,14 +1,12 @@
+<% include partials/header %>
+
 <!-- based on https://github.com/nax3t/background-slider -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>YelpCamp</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <header>
     <link rel="stylesheet" href="/stylesheets/landing.css">
     <!-- modernizr makes the page more cross-browser friendly, esp older browsers; this is an old version, the new one support npm and cmd line interaction. -->
     <!-- set to async so it loads w/ other assets on page -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
-  </head>
+  </header>
 
   <body>
     <!-- error handling -->
@@ -25,7 +23,7 @@
       <% } %>
     </div>
     
-    <div id="landing-header">
+    <div id="landing-title">
       <h1 class="shadeOpText">YelpCamp</h1>
       <h2 class="shadeOpText">Jump into your next adventure!</h2>
 
@@ -101,5 +99,3 @@
         </a>
       </li>
     </ul>
-
-<% include partials/footer %>
