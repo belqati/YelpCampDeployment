@@ -77,10 +77,11 @@ router.post("/", middleware.isLoggedIn, upload.single("image"), function(req, re
   let image = req.body.campground.image;
   let imageId = req.body.campground.imageId;
   let desc = req.body.campground.description;
-  // add username and id from user model
+  // add id, username, and avatar from user model
   let author = {
     id: req.user._id,
-    username: req.user.username
+    username: req.user.username,
+    avatar: req.user.avatar
   }
 
   // check if multer fileFilter added "fileValidationError" to req object 
@@ -142,7 +143,6 @@ router.get("/:id", function(req, res) {
       req.flash("error", "Campground not found!");
       res.redirect("back");
     } else {
-      console.log(itemObj);
       // render show page template
       res.render("campgrounds/show", {campground: itemObj});
     }

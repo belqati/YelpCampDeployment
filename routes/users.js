@@ -119,7 +119,7 @@ router.post("/", upload.single("avatar"), function(req, res) {
 
 // SHOW route -- shows all info for a specific user
 router.get("/:user_id", function(req, res) {
-  // find user via MongoDB id, populate comments array from comments collection
+  // find user via MongoDB id
   User.findById(req.params.user_id, function(err, itemObj) {
     // check if err OR itemObj is null
     // must handle null or it will pass and crash the application, because null.image etc. does not exist

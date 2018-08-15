@@ -26,7 +26,7 @@ let userRoutes = require("./routes/users");
 let searchResults = require("./routes/search");
 
 // config server and DB
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://localhost/yelp-camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

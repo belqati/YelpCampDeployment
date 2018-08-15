@@ -4,19 +4,19 @@
 <h1 class="formTitle">Forgotten Password?</h1>
 
 <div class="formSize footerSpace">
-  <p>So you forgot your password, no problem! Send us the email we have on file for you, and we'll send you a password reset token.</p>
+  <p>No problem! Send us the email we have for you, and we'll send you a reset token.</p>
 
   <form action="/forgotpw" method="POST">
     <div class="form-group">
-      <label for="email">Your Email</label>
-      <input autofocus class="form-control" type="email" placeholder="Enter your registered YelpCamp email" name="email">
+      <label for="email">Email</label>
+      <input autofocus class="form-control" type="email" placeholder="Your YelpCamp email" name="email">
     </div>
 
     <% include ./partials/formSubmit %>
 
   </form>
   <p>
-    <em>For your security, your reset token expires after one hour.</em>
+    <em>For your security, this reset token expires after one hour.</em>
   </p>
 </div>
 

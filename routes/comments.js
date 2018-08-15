@@ -32,9 +32,10 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
           req.flash("error", "Oops, something went wrong!");
           console.log(err);
         } else {
-          // add username and id to comment, save
+          // add id, username, and avatar to comment, save
           commentObj.author.id = req.user._id;
           commentObj.author.username = req.user.username;
+          commentObj.author.avatar = req.user.avatar;
           commentObj.save();
           // comments added and saved to comments collection
           campgroundObj.comments.push(commentObj);

@@ -15,6 +15,7 @@
           <img class="card-img" src="<%= campground.image %>" alt="nada">
           <div class="card-body">
             <h3 class="card-title"><%= campground.name %></h3>
+            <p class="cardExcerpt"><small><%- campground.description.substring(0, 35) %>&#8230;</small></p>
           </div>
         </a>
       </div>

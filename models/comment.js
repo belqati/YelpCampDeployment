@@ -10,8 +10,9 @@ let commentSchema = new mongoose.Schema({
     id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
-    },
-    username: String
+      },
+    username: String,
+    avatar: String,
   }
 });
 let Comment = mongoose.model("Comment", commentSchema);

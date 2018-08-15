@@ -113,7 +113,7 @@ h3, h4, h5, h6 {
 
 .paginate {
   padding-top: 10px;
-  padding-bottom: 45px;
+  padding-bottom: 50px;
 }
 
 .navbar {
@@ -163,22 +163,28 @@ h3, h4, h5, h6 {
   padding-bottom: 0;
 }
 
+.card-title {
+  margin-bottom: 0;
+}
+
 .img-thumbnail {
   object-fit: cover;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
 
 .search-thumbnail {
   object-fit: cover;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .comment-thumbnail {
   object-fit: cover;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  border: solid;
+  border-radius: 50%;
 }
 
 #map {
@@ -203,7 +209,11 @@ h3, h4, h5, h6 {
 }
 
 .currentUserComment {
-  color: #28A745;
+  border: solid #39C745;
+}
+
+.createdAt {
+  padding-top: 3px;
 }
 
 #collapseComment, .collapseEditComment {
@@ -260,6 +270,10 @@ h3, h4, h5, h6 {
   padding: 3px;
 }
 
+.searchListCategory {
+  padding-top: 5px;
+}
+
 #addCamp {
   margin-top: 15px;
   background-color: #00750A;
@@ -271,6 +285,11 @@ h3, h4, h5, h6 {
   border-color: #00750A;
 }
 
-#userSearchList {
-  padding-top: 10px;
+.userSite {
+  padding: 7px;
+}
+
+.campUserCluster {
+  margin-top: 10px;
+  margin-bottom: 0px;
 }

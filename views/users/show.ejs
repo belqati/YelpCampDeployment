@@ -16,12 +16,16 @@
 
           <!-- list user's campgrounds -->
             <div class="list-group">
-            <% campgrounds.forEach(function(campground) { %>
-              <a href="/campgrounds/<%= campground._id %>" class="list-group-item textLink">
-                <img class="img-thumbnail rounded-circle list-inline-item" src="<%= campground.image %>" alt="nada">
-                <h6 class="list-inline-item"><%= campground.name %></h6><br>
-              </a>
-            <% }); %>
+            <% if(campgrounds.length > 0) { %>
+              <% campgrounds.forEach(function(campground) { %>
+                <a href="/campgrounds/<%= campground._id %>" class="list-group-item textLink userSite">
+                  <img class="img-thumbnail rounded-circle list-inline-item" src="<%= campground.image %>" alt="nada">
+                  <h6 class="list-inline-item"><%= campground.name %></h6><br>
+                </a>
+              <% }); %>
+            <% } else { %>
+            <p><em>No campgrounds yet&#8230;</em></p>
+            <% } %>
           </div>
         </div>
         <p>

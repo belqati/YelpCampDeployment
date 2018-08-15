@@ -29,14 +29,17 @@
             <div class="form-group">
 
               <div>
-                <span class="float-right">
+                <span class="float-right createdAt">
                   <small>
                     <em><%= moment(campground.createdAt).fromNow() %></em>
                   </small>
                 </span>
                 <small>
                   <em>Submitted by 
-                    <a class="textLink" href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>
+                    <a class="textLink" href="/users/<%= campground.author.id %>">
+                      <img  class="comment-thumbnail list-inline-item" src="<%= campground.author.avatar %>" alt="">
+                      <%= campground.author.username %>
+                    </a>
                   </em>
                 </small>
               </div>
@@ -108,20 +111,25 @@
       <!-- else list comments -->
       <% campground.comments.forEach(function(comment) { %>
         <li class="list-group-item" id="commentList">
-          <span class="float-right">
+          <span class="float-right createdAt">
             <small>
               <em><%= moment(comment.createdAt).fromNow() %></em>
             </small>
           </span>
 
-          <!-- color currentUser icon -->
+          <!-- color currentUser -->
           <h6>
             <% if(currentUser && currentUser._id.equals(comment.author.id)) { %>
-              <span class="currentUserComment"><i class="fa fa-user"></i></span>
+              <a class="textLink" href="/users/<%= comment.author.id %>">
+                <img class="comment-thumbnail list-inline-item currentUserComment" src="<%= comment.author.avatar %>" alt="">
+                <%= comment.author.username %>
+              </a>
             <% } else { %>
-              <span><i class="fa fa-user"></i></span>
+              <a class="textLink" href="/users/<%= comment.author.id %>">
+                <img class="comment-thumbnail list-inline-item" src="<%= comment.author.avatar %>" alt="">
+                <%= comment.author.username %>
+              </a>
             <% } %>
-              <a class="textLink" href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
           </h6>
           <p><%= comment.text %></p>
 
