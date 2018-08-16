@@ -3,9 +3,9 @@ let router = express.Router();
 let Campground = require("../models/campground");
 let User = require("../models/user");
 
-// show all search results
+// show search results
 router.get("/", function(req, res) {
-  // pagination for search results
+  // paginate search results
   let perPage = 4;
   let pageQuery = parseInt(req.query.page);
   let pageNumber = pageQuery ? pageQuery : 1;
@@ -13,6 +13,7 @@ router.get("/", function(req, res) {
   let userSearch = req.query.search;
   let regex = new RegExp(escapeRegex(userSearch), "gi");
 
+  // search campground names and usernames
   Campground.find({name: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allCampgrounds) {
 
     User.find({username: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err, allUsers) {
@@ -32,7 +33,6 @@ router.get("/", function(req, res) {
               req.flash("error", "Sorry, \"" + userSearch + "\" yields no matches. Please try a different search.");
               return res.redirect("back");
             }
-            // render search results and send object with variables for js manipulation in ejs
             res.render("searchResults", {
               noMatch: noMatch,
               campgrounds: allCampgrounds,

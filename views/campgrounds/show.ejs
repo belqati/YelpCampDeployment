@@ -43,19 +43,23 @@
                   </em>
                 </small>
               </div>
-              <!-- if no currentUser do nothing; if currentUser is author show buttons OR if currentUser isAdmin show buttons -->
+
+              <!-- if currentUser is author/isAdmin show buttons -->
               <p>
               <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
-                <div class="float-right">
+                <div class="btn-group float-right">
                   <a class="btn btn-sm btn-outline-warning" href="/campgrounds/<%= campground._id %>/edit"><i class="fas fa-edit"></i></a>
                   <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
                 </div>                  
               <% } %>
               </p>
-              <p>
-                <a class="btn btn-sm btn-outline-info" href="/campgrounds"><i class="fas fa-sign"></i> Campgrounds</a>
-                <a class="btn btn-sm btn-outline-primary" href="/users"><i class="fas fa-users"></i></a>
-              </p>
+
+              <div class="form-group row float-sm-left">
+                <div class="btn-group col-12">
+                  <a class="btn btn-sm btn-block btn-outline-info" href="/campgrounds"><i class="fas fa-sign"></i> Campgrounds</a>
+                  <a class="btn btn-sm btn-outline-primary" href="/users"><i class="fas fa-users"></i></a>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -77,7 +81,7 @@
               <h5><a class="textLink" href="/login">Login</a> or <a class="textLink" href="/register">create an account</a> to contribute!</h5>
             <% } %>
 
-            <!-- else give access to add comment form -->
+            <!-- access to add comment form -->
             <% if(currentUser) { %>
               <h5>Add your <i class="far fa-comment"></i> to the conversation!</h5>
               <form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">
@@ -134,11 +138,13 @@
           <p><%= comment.text %></p>
 
           <div class="form-group">
-          <!-- if no currentUser do nothing; if currentUser is author|isAdmin show buttons -->
+          <!-- if currentUser is author/isAdmin show buttons -->
           <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
             <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-              <a class="btn btn-sm btn-outline-warning" data-toggle="collapse" href="#collapseEdit<%= comment._id %>"><i class="fas fa-edit"></i></a>
-              <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+              <div class="btn-group">
+                <a class="btn btn-sm btn-outline-warning" data-toggle="collapse" href="#collapseEdit<%= comment._id %>"><i class="fas fa-edit"></i></a>
+                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+              </div>
             </form>
 
             <!-- toggle edit form -->

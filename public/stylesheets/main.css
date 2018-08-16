@@ -87,8 +87,8 @@ h3, h4, h5, h6 {
   background-color: rgba(255,243,205, 0.7);
 }
 
-.alert-info {
-  background-color: rgba(209,236,241, 0.7);
+.alert-success {
+  background-color: rgba(212,237,218, 0.7);
 }
 
 .backgroundPic {
