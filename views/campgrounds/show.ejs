@@ -36,10 +36,10 @@
                 </span>
                 <small>
                   <em>Submitted by 
-                    <a class="textLink" href="/users/<%= campground.author.id %>">
+                    <strong><a class="textLink" href="/users/<%= campground.author.id %>">
                       <img  class="comment-thumbnail list-inline-item" src="<%= campground.author.avatar %>" alt="">
                       <%= campground.author.username %>
-                    </a>
+                    </strong></a>
                   </em>
                 </small>
               </div>
@@ -103,7 +103,7 @@
       <% if(campground.comments.length === 0) { %>
         <div class="card-body">
           <div class="card-title text-muted">
-            <em>There are no comments for <%= campground.name %>. Be the first to contribute!</em>
+            <p><em>There are no comments for <%= campground.name %>. Be the first to contribute!</em></p>
           </div>
         </div>
       <% } %>

@@ -254,6 +254,10 @@ h3, h4, h5, h6 {
   border-radius: 3px;
 }
 
+.userListBackgrnd {
+  margin: 5px;
+}
+
 .footerSpace {
   margin-bottom: 70px;
 }
