@@ -27,8 +27,8 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
       return res.redirect("/campgrounds");
     } else {
       Comment.create(req.body.comment, function(err, commentObj) {
-        if(err) {
-          req.flash("error", "Oops, comment not created!");
+        if(err || !commentObj.text) {
+          req.flash("error", "No comment created!");
           return res.redirect("back");
         }
         // add id, username, and avatar to comment
@@ -72,7 +72,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res) 
       req.flash("error", "Oops, comment update failed!")
       return res.redirect("back");
     }
-    req.flash("success", "comment successfully updated!")
+    req.flash("success", "Comment successfully updated!")
     res.redirect("/campgrounds/" + req.params.id);
   });
 });

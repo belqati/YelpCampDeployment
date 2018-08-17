@@ -167,7 +167,6 @@ router.put("/:user_id", middleware.checkUserOwnership, upload.single("avatar"), 
         user.setPassword(req.body.password, function(err) {
           if(err) {
             req.flash("error", err.message);
-            res.redirect("back");
           }
           user.save();
         });

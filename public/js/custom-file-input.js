@@ -1,5 +1,6 @@
-// custom-file-input modification + css for restyling: based on the tut by Osvaldas Valutis https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
-// his original script also accounts for multifile uploads with a counter
+// custom-file-input modification + css for restyling, based on https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+// the original script also supports multifile uploads and includes a counter
+// N.B.: .inputfile:invalid must be modded in css to show error messages
 
 "use strict";
 

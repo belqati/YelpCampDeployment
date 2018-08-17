@@ -204,6 +204,13 @@ h3, h4, h5, h6 {
   z-index: -1;
 }
 
+/*position and make error message visible*/
+.inputfile:invalid {
+  width: 70px;
+  height: 50px;
+  overflow: visible;
+}
+
 .border-success, .border-warning {
   border-left-width: 5px;
 }

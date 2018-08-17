@@ -78,7 +78,7 @@
 
             <!-- check if logged in -->
             <% if(!currentUser) { %>
-              <h5><a class="textLink" href="/login">Login</a> or <a class="textLink" href="/register">create an account</a> to contribute!</h5>
+              <h5><a class="textLink" href="/login">Login</a> or <a class="textLink" href="/users/register">create an account</a> to contribute!</h5>
             <% } %>
 
             <!-- access to add comment form -->
@@ -156,7 +156,8 @@
                     <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
                   </div>
                   <div class="form-group">
-                    <textarea autofocus class="form-control" type="text" cols="70" rows="3" name="comment[text]" form="edit-comment-form<%= comment._id %>"><%= comment.text %></textarea>
+                    <!-- customize error message -->
+                    <textarea required oninvalid="this.setCustomValidity('Edit or delete, please do not leave blank')" oninput="this.setCustomValidity('')" autofocus class="form-control" type="text" cols="70" rows="3" name="comment[text]" form="edit-comment-form<%= comment._id %>"><%= comment.text %></textarea>
                   </div>
                   <div class="form-group">
                     <button class="btn btn-sm btn-outline-warning">Update <i class="fa fa-comment"></i></button>

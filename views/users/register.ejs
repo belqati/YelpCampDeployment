@@ -9,38 +9,40 @@
       <form action="/users" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label>Username</label>
-          <input autofocus class="form-control" type="text" placeholder="username" name="username">
+          <input autofocus required class="form-control" type="text" placeholder="username" name="username">
         </div>
 
-        <!-- custom-file JS and styling based on tut by Osvaldas Valutis at https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ -->
+        <!-- use JS and css via .inputfile -->
         <div class="form-group">
-          <input type="file" name="avatar" id="avatar" class="inputfile" accept="image/*" required/>
+          <label>Avatar</label>
+          <input required type="file" name="avatar" id="avatar" class="inputfile" accept="image/*"/>
           <label for="avatar" class="btn btn-info btn-block"><i class="fas fa-cloud-upload-alt"></i> <span>Upload (.jpg .jpeg .png)</span></label>
         </div>
 
         <div class="row">
           <div class="form-group col">
             <label>Firstname</label>
-            <input class="form-control" type="text" placeholder="Jane" name="firstName">
+            <input required class="form-control" type="text" placeholder="Jane" name="firstName">
           </div>
           <div class="form-group col">
             <label>Lastname</label>
-            <input class="form-control" type="text" placeholder="Doe" name="lastName">
+            <input required class="form-control" type="text" placeholder="Doe" name="lastName">
           </div>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input class="form-control" type="text" placeholder="jane@doe.edu" name="email">
+          <input required class="form-control" type="text" placeholder="jane@doe.edu" name="email">
         </div>
         <div class="form-group">
           <label>Create a Password</label>
-          <input class="form-control" type="password" placeholder="password" name="password">
+          <input required class="form-control" type="password" placeholder="password" name="password">
         </div>
         <div class="form-group">
           <label>Background</label>
-          <textarea class="form-control" type="text" placeholder="Share a bit about yourself." name="userBackground" cols="30" rows="5"></textarea>
+          <textarea required class="form-control" type="text" placeholder="Share a bit about yourself." name="userBackground" cols="30" rows="5"></textarea>
         </div>
 
+        <small><em>*All fields are required.</em></small>
         <% include ../partials/formSubmit %>
 
       </form>

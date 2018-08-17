@@ -9,29 +9,31 @@
       <form action="/campgrounds" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label>Campground Name</label>
-          <input autofocus class="form-control" type="text" placeholder="name" name="campground[name]">
+          <input required autofocus class="form-control" type="text" placeholder="name" name="campground[name]">
         </div>
         <div class="form-group">
           <label>Campground Location</label>
-          <input id="placesInput" class="form-control" type="text" placeholder="Yellowstone National Park, WY" name="location">
+          <input required id="placesInput" class="form-control" type="text" placeholder="Yellowstone National Park, WY" name="location">
         </div>
         <div class="form-group">
           <label>Price per Night ($)</label>
-          <input class="form-control" type="number" placeholder="price" name="campground[price]" min="0" step="0.01">
+          <input required class="form-control" type="number" placeholder="price" name="campground[price]" min="0" step="0.01">
         </div>
 
-        <!-- custom-file JS and styling based on tut by Osvaldas Valutis at https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/ -->
+        <!-- use JS and css via .inputfile -->
         <div class="form-group">
-          <input type="file" name="image" id="image" class="inputfile" accept="image/*" required/>
+          <label>Picture</label>
+          <input required type="file" name="image" id="image" class="inputfile" accept="image/*"/>
           <label for="image" class="btn btn-info btn-block"><i class="fas fa-cloud-upload-alt"></i> <span>Upload (.jpg .jpeg .png)</span></label>
         </div>
 
         <div class="form-group">
           <label>Campground Description</label>
-          <textarea class="form-control" type="text" placeholder="Share a description!" name="campground[description]" cols="30" rows="5"></textarea>
+          <textarea required class="form-control" type="text" placeholder="Share a description!" name="campground[description]" cols="30" rows="5"></textarea>
           <small></small>
         </div>
 
+        <small><em>*All fields are required.</em></small>
         <% include ../partials/formSubmit %>
 
       </form>
