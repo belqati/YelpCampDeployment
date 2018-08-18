@@ -3,6 +3,9 @@
 // N.B.: geocoder api uses two keys, one which appears publicly in show.ejs url--thus the PUBLIC VERSION MUST ADJUST RESTRICTIONS VIA GOOGLE DEV DASHBOARD
 require("dotenv").config();
 
+// PORT variable for Heroku or local host
+let port = process.env.PORT || 3000;
+
 let express = require("express");
 let app = express();
 let bodyParser = require("body-parser");
@@ -68,6 +71,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/users", userRoutes);
 app.use("/searchResults", searchResults);
 
-app.listen(3000, function() {
-  console.log("YelpCamp Server has started!");
+app.listen(port, function() {
+  console.log("YelpCamp server is listening!");
 });
