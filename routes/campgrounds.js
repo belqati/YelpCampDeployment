@@ -104,6 +104,7 @@ router.post("/", middleware.isLoggedIn, upload.single("image"), function(req, re
     // get geocoder data and add to campground object
     geocoder.geocode(req.body.location, function(err, data) {
       if(err || !data.length) {
+        console.log(err)
         req.flash("error", "That appears to be an invalid address!");
         return res.redirect("back");
       }
