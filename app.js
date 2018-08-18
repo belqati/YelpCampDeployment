@@ -5,6 +5,8 @@ require("dotenv").config();
 
 // PORT variable for Heroku or local host
 let port = process.env.PORT || 3000;
+// DATABASEURL variable for Heroku and local host: provides means for two different versions of the DB based on its environment; redundancy is intentional as backup should anything happen to db (here for localhost)
+let dburl = process.env.DATABASEURL || "mongodb://localhost/yelpCamp";
 
 let express = require("express");
 let app = express();
@@ -29,7 +31,7 @@ let userRoutes = require("./routes/users");
 let searchResults = require("./routes/search");
 
 // config server and DB
-mongoose.connect("mongodb://localhost/yelpCamp");
+mongoose.connect(dburl);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
