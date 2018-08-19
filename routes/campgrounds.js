@@ -5,6 +5,7 @@ let Campground = require("../models/campground");
 let middleware = require("../middleware");
 
 // config node-geocoder
+// use package dotenv for incorporating hidden and persisting environment variables in .env file; contains geocoder api key without restrictions, thus hidden on server side; a second key is used in url that is restricted since anyone can see it; if working locally remove local host restriction from google dev dashboard for deployment!
 let NodeGeocoder = require('node-geocoder');
 let options = {
   provider: 'google',
@@ -92,7 +93,7 @@ router.post("/", middleware.isLoggedIn, upload.single("image"), function(req, re
 
   // upload to cloudinary; folder option allows for media organization
   // moderation: add to folder option {..., moderation: "webpurify"} or {..., moderation: "aws_rek"}
-  cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/campgrounds"}, function(err, result) {
+  cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/campgrounds", moderation: "aws_rek"}, function(err, result) {
     if(err) {
       req.flash("error", "Oops, upload failed!");
       return res.redirect("back");
@@ -104,7 +105,6 @@ router.post("/", middleware.isLoggedIn, upload.single("image"), function(req, re
     // get geocoder data and add to campground object
     geocoder.geocode(req.body.location, function(err, data) {
       if(err || !data.length) {
-        console.log(err)
         req.flash("error", "That appears to be an invalid address!");
         return res.redirect("back");
       }
@@ -173,7 +173,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
           await cloudinary.v2.uploader.destroy(campground.imageId, {invalidate: true});
           // upload/assign new image/imageId
           // moderation: {..., moderation: "webpurify"} or {..., moderation: "aws_rek"}
-          let result = await cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/campgrounds"});
+          let result = await cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/campgrounds", moderation: "aws_rek"});
           campground.imageId = result.public_id;
           campground.image = result.secure_url;
         } catch(err) {

@@ -71,7 +71,7 @@ router.post("/", upload.single("avatar"), function(req, res) {
   }
 
   // moderation: {..., moderation: "webpurify"} or {..., moderation: "aws_rek"}
-  cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/users"}, function(err, result) {
+  cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/users", moderation: "webpurify"}, function(err, result) {
     if(err) {
       req.flash("error", "Upload failed!");
       return res.redirect("back");
@@ -152,7 +152,7 @@ router.put("/:user_id", middleware.checkUserOwnership, upload.single("avatar"), 
       try {
         await cloudinary.v2.uploader.destroy(user.avatarId, {invalidate: true});
         // moderation: {..., moderation: "webpurify"} or {..., moderation: "aws_rek"}
-        let result = await cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/users"});
+        let result = await cloudinary.v2.uploader.upload(req.file.path, {folder: "yelp_camp/users", moderation: "webpurify"});
         user.avatarId = result.public_id;
         user.avatar = result.secure_url;
       } catch(err) {
