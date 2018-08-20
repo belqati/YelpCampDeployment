@@ -49,15 +49,15 @@ For all installed packages see `package.json`. For further explanation see the r
 <hr>
 
 # Functional Summary
-<table cellspacing="0" cellpadding="0">
+<table>
   <tr style="padding: 0">
-    <td style="padding: 0 5px 0 0" width="65%"><img src="public/pics/campgrounds-index.jpg"></td>
-    <td style="padding-left: 0 0 0 5px" width="35%"><img src="public/pics/users-index-responsive.jpg"></td>
+    <td style="padding: 0 5px 0 0" width="68%"><img src="public/pics/campgrounds-index.jpg"></td>
+    <td style="padding-left: 0 0 0 5px" width="33%"><img src="public/pics/users-index-responsive.jpg"></td>
   </tr>
 </table>
 
 ## Campground and User Show Pages
-<table cellspacing="0" cellpadding="0">
+<table>
   <tr style="padding: 0">
     <td style="padding-right: 5px" width="33%"><img src="public/pics/campground-show-responsive.jpg"></td>
     <td style="padding-right: 5px" width="33%"><img src="public/pics/user-show-signed-in-responsive.jpg"></td>
@@ -70,16 +70,20 @@ The show page for each user is similar but simpler, with the authorization funct
 </table>
 
 ## Search Results
-<img src="public/pics/search-results-responsive.jpg" width="33%" style="padding-right: 10px" align="left">
-
+<table>
+  <tr style="padding: 0">
+    <td style="padding-right: 5px" width="33%"><img src="public/pics/search-results-responsive.jpg"></td>
+    <td>
 The search feature is currently limited to campground names and usernames. Like the index pages for all campgrounds and all users, search results are displayed in paginated format. The default number of displayed search results can be adjusted in the `search.js` route by modifying the `perPage` variable. The same holds true for the campgrounds and users index pages via the `campgrounds.js` and `users.js`, routes, respectively.
     </td>
   </tr>
 </table>
 
 ## Administration
-<img src="public/pics/admin-override-responsive.jpg" width="33%" style="padding-right: 10px" align="left">
-
+<table>
+  <tr style="padding: 0">
+    <td style="padding-right: 5px" width="33%"><img src="public/pics/admin-override-responsive.jpg"></td>
+    <td>
 Administration is built into the user profile on the database side, where all registered users are `{isAdmin: false}` by default. This is where I departed from the course, leaving the option for `{isAdmin: true}` up to the sole discretion of the one having database permissions to do so. That is, it cannot be accessed through the front-end, but in the current version must be human-moderated. If a user profile is granted administrative authorization, they have the ability to edit or delete any other user profile, campground, and comment.
 
 All images uploaded by registered users are filtered through Cloudinary's moderation tools: WebPurify for human moderation; aws Rekognition for AI moderation. Both are fast, and allow uploaded images to appear right away (presuming their appropriateness).
