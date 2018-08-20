@@ -84,9 +84,11 @@ The search feature is currently limited to campground names and usernames. Like 
   <tr style="padding: 0">
     <td style="padding-right: 5px" width="33%"><img src="public/pics/admin-override-responsive.jpg"></td>
     <td>
+
 Administration is built into the user profile on the database side, where all registered users are `{isAdmin: false}` by default. This is where I departed from the course, leaving the option for `{isAdmin: true}` up to the sole discretion of the one having database permissions to do so. That is, it cannot be accessed through the front-end, but in the current version must be human-moderated. If a user profile is granted administrative authorization, they have the ability to edit or delete any other user profile, campground, and comment.
 
 All images uploaded by registered users are filtered through Cloudinary's moderation tools: WebPurify for human moderation; aws Rekognition for AI moderation. Both are fast, and allow uploaded images to appear right away (presuming their appropriateness).
+
     </td>
   </tr>
 </table>
