@@ -8,24 +8,6 @@ body {
   color: #002B04;
 }
 
-footer {
-  color: white;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 10px 15px 0 15px;
-  margin-bottom: 0;
-  background-color: #002B04;
-  opacity: .7;
-  transition: .5s;
-  -webkit-transition: .5s;
-}
-
-footer:hover {
-  opacity: 1;
-}
-
 h1 {
   font-size: 7.5vw;
   font-weight: bolder;
@@ -41,6 +23,24 @@ h2 {
 
 h3, h4, h5, h6 {
   font-weight: bolder;
+}
+
+#footerPartial {
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px 0 15px;
+  margin-bottom: 0;
+  background-color: #002B04;
+  opacity: .7;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+#footerPartial:hover {
+  opacity: 1;
 }
 
 #activePage {
