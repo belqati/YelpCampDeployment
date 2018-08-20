@@ -37,6 +37,7 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
 <hr>
 
 # Select Packages and Features
+
 <table>
   <tr style="padding: 0">
     <td style="padding: 0 20px 0 0" width="33%"><img src="public/pics/landing-page-responsive.jpg"></td>
@@ -59,6 +60,7 @@ For all installed packages see `package.json`. For further explanation see the r
 <hr>
 
 # Functional Summary
+
 <table>
   <tr style="padding: 0">
     <td style="padding: 0 5px 0 0" width="68%"><img src="public/pics/campgrounds-index.jpg"></td>
@@ -67,6 +69,7 @@ For all installed packages see `package.json`. For further explanation see the r
 </table>
 
 ## Campground and User Show Pages
+
 <table>
   <tr style="padding: 0">
     <td style="padding-right: 5px" width="33%"><img src="public/pics/campground-show-responsive.jpg"></td>
@@ -81,6 +84,7 @@ The show page for each user is similar but simpler, with the authorization funct
 </table>
 
 ## Search Results
+
 <table>
   <tr style="padding: 0">
     <td style="padding-right: 5px" width="33%"><img src="public/pics/search-results-responsive.jpg"></td>
@@ -92,6 +96,7 @@ The search feature is currently limited to campground names and usernames. Like 
 </table>
 
 ## Administration
+
 <table>
   <tr style="padding: 0">
     <td style="padding-right: 5px" width="33%"><img src="public/pics/admin-override-responsive.jpg"></td>
