@@ -32,7 +32,7 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
   <tr style="padding: 0">
     <td style="padding: 0 20px 0 0" width="33%"><img src="public/pics/landing-page-responsive.jpg"></td>
     <td style="padding: 0">
-      
+
 For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
 
   * `express` and `mongoose` for RESTful and CRUD strategies
@@ -90,7 +90,7 @@ The search feature is currently limited to campground names and usernames. Like 
 
 Administration is built into the user profile on the database side, where all registered users are `{isAdmin: false}` by default. This is where I departed from the course, leaving the option for `{isAdmin: true}` up to the sole discretion of the one having database permissions to do so. That is, it cannot be accessed through the front-end, but in the current version must be human-moderated. If a user profile is granted administrative authorization, they have the ability to edit or delete any other user profile, campground, and comment.
 
-All images uploaded by registered users are filtered through Cloudinary's moderation tools: `WebPurify` for human moderation; `aws Rekognition` for AI moderation. Both are fast, and allow uploaded images to appear right away (presuming their appropriateness).
+All images uploaded by registered users are filtered through Cloudinary's moderation tools: `WebPurify` for human moderation; `aws Rekognition` for AI moderation. Both are fast, and allow uploaded images to appear right away (presuming they are not flagged).
     </td>
   </tr>
 </table>
