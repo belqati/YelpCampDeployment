@@ -62,6 +62,7 @@ For all installed packages see `package.json`. For further explanation see the r
     <td style="padding-right: 5px" width="33%"><img src="public/pics/campground-show-responsive.jpg"></td>
     <td style="padding-right: 5px" width="33%"><img src="public/pics/user-show-signed-in-responsive.jpg"></td>
     <td>
+      
 The show page for each campground boasts a fully interactive map via the Google API. On loggin in users can create campgrounds and contributed comments. Options for editing or deleting the campground and/or comments appear if the logged-in user posted them.
 
 The show page for each user is similar but simpler, with the authorization functionality for editing and deleting also present.
@@ -74,6 +75,7 @@ The show page for each user is similar but simpler, with the authorization funct
   <tr style="padding: 0">
     <td style="padding-right: 5px" width="33%"><img src="public/pics/search-results-responsive.jpg"></td>
     <td>
+
 The search feature is currently limited to campground names and usernames. Like the index pages for all campgrounds and all users, search results are displayed in paginated format. The default number of displayed search results can be adjusted in the `search.js` route by modifying the `perPage` variable. The same holds true for the campgrounds and users index pages via the `campgrounds.js` and `users.js`, routes, respectively.
     </td>
   </tr>
@@ -87,8 +89,7 @@ The search feature is currently limited to campground names and usernames. Like 
 
 Administration is built into the user profile on the database side, where all registered users are `{isAdmin: false}` by default. This is where I departed from the course, leaving the option for `{isAdmin: true}` up to the sole discretion of the one having database permissions to do so. That is, it cannot be accessed through the front-end, but in the current version must be human-moderated. If a user profile is granted administrative authorization, they have the ability to edit or delete any other user profile, campground, and comment.
 
-All images uploaded by registered users are filtered through Cloudinary's moderation tools: WebPurify for human moderation; aws Rekognition for AI moderation. Both are fast, and allow uploaded images to appear right away (presuming their appropriateness).
-
+All images uploaded by registered users are filtered through Cloudinary's moderation tools: `WebPurify` for human moderation; `aws Rekognition` for AI moderation. Both are fast, and allow uploaded images to appear right away (presuming their appropriateness).
     </td>
   </tr>
 </table>
