@@ -2,10 +2,10 @@
 
   * [Introduction](#introduction)
   * [Select Packages and Features](#select-packages-and-features)
-  * [Functional Summary](functional-summary)
-    - [Campground and User Show Pages](campground-and-user-pages)
-    - [Search Results](search-results)
-    - [Administration](administration)
+  * [Functional Summary](#functional-summary)
+    - [Campground and User Show Pages](#campground-and-user-show-pages)
+    - [Search Results](#search-results)
+    - [Administration](#administration)
 
 # Introduction
 
