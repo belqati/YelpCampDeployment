@@ -28,7 +28,7 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
 <hr>
 
 # Select Packages and Features
-<table style="border-collapse: collapse;">
+<table style="border-style: hidden;">
   <tr style="padding: 0">
     <td style="padding: 0 20px 0 0" width="33%"><img src="public/pics/landing-page-responsive.jpg"></td>
     <td style="padding: 0">
