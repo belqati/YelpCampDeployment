@@ -1,13 +1,5 @@
-<style type="text/css">
-  table {
-    border-collapse: collapse;
-  }
-  table, tr, td {
-    border: 0;
-  }
-</style>
-
 # Introduction
+
 ![landing-page.jpg](public/pics/landing-page.jpg)
 
 *YelpCampDeployment* is a refactored version of the yelpCamp project developed under the instruction of [Colt Steele](https://www.udemy.com/the-web-developer-bootcamp/), with a shoutout to Ian Schoonover and Zarko Maslaric. The project is my first fully deployed fullstack app, and is not intended for heavy use. It allows a user to accomplish the following:
@@ -108,3 +100,13 @@ All images uploaded by registered users are filtered through Cloudinary's modera
     </td>
   </tr>
 </table>
+
+<style type="text/css">
+  table {
+    border-collapse: collapse;
+  }
+  table, tr, td {
+    border: 0;
+  }
+</style>
+
