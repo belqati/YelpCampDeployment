@@ -28,17 +28,16 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
 <hr>
 
 # Select Packages and Features
-|---|---|
 | <img src="public/pics/landing-page-responsive.jpg" width="33%"> | For all installed packages see `package.json`. |
-|---| * `express` and `mongoose` for RESTful and CRUD strategies |
-|---| * `passport` for local authentication/authorization |
-|---| * `connect-flash` for front-end error handling |
-|---| * `ejs` for templating |
-|---| * `node-geocoder` for implementing Google Maps APIs |
-|---| * `cloudinary` for hosting and moderating user uploaded images |
-|---| * [mLab](https://mlab.com/) for hosting a persistent MongoDB database |
-|---| * [Heroku](https://www.heroku.com/home) for app deployment |
-|---|---|
+| --- | --- |
+|                                                                 | * `express` and `mongoose` for RESTful and CRUD strategies |
+|                                                                 | * `passport` for local authentication/authorization |
+|                                                                 | * `connect-flash` for front-end error handling |
+|                                                                 | * `ejs` for templating |
+|                                                                 | * `node-geocoder` for implementing Google Maps APIs |
+|                                                                 | * `cloudinary` for hosting and moderating user uploaded images |
+|                                                                 | * [mLab](https://mlab.com/) for hosting a persistent MongoDB database |
+|                                                                 | * [Heroku](https://www.heroku.com/home) for app deployment |
 
 <hr>
 
