@@ -24,9 +24,12 @@
 
 See the live version here: [https://evening-everglades-41057.herokuapp.com](https://evening-everglades-41057.herokuapp.com). Feel free to experiment with it, and please reach out to me if bugs are found.
 
+<hr>
 # Select Packages and Features
-<img src="public/pics/landing-page-responsive.jpg" width="33%" style="padding-right: 35px" align="left">
-
+<table style="padding: 0;">
+  <tr style="border: none; padding: 0">
+    <td style="border: none; padding: 0 20px 0 0"><img src="public/pics/landing-page-responsive.jpg"></td>
+    <td style="border: none; padding: 0">
 For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
 
   * `express` and `mongoose` for RESTful and CRUD strategies
@@ -37,11 +40,11 @@ For all installed packages see `package.json`. For further explanation see the r
   * `cloudinary` for hosting and moderating user uploaded images
   * [mLab](https://mlab.com/) for hosting a persistent MongoDB database
   * [Heroku](https://www.heroku.com/home) for app deployment
+    </td>
+  </tr>
+</table>
 
-
-<h1 style="clear: both;">Functional Summary</h1>
-
-
+<hr>
 # Functional Summary
 <img src="public/pics/campgrounds-index.jpg" width="67%" style="padding-right: 5px" align="left">
 <img src="public/pics/users-index-responsive.jpg" width="33%" style="padding-left: 5px" align="right">
