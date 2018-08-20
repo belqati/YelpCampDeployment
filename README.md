@@ -25,8 +25,9 @@
 See the live version here: [https://evening-everglades-41057.herokuapp.com](https://evening-everglades-41057.herokuapp.com). Feel free to experiment with it, and please reach out to me if bugs are found.
 
 <hr>
+
 # Select Packages and Features
-<table style="padding: 0;">
+<table style="border: none; padding: 0;">
   <tr style="border: none; padding: 0">
     <td style="border: none; padding: 0 20px 0 0"><img src="public/pics/landing-page-responsive.jpg"></td>
     <td style="border: none; padding: 0">
@@ -45,6 +46,7 @@ For all installed packages see `package.json`. For further explanation see the r
 </table>
 
 <hr>
+
 # Functional Summary
 <img src="public/pics/campgrounds-index.jpg" width="67%" style="padding-right: 5px" align="left">
 <img src="public/pics/users-index-responsive.jpg" width="33%" style="padding-left: 5px" align="right">
