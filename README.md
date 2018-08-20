@@ -1,3 +1,9 @@
+<style type="text/css">
+  h1 {
+    color: blue;
+  }
+</style>
+
 # Introduction
 ![landing-page.jpg](public/pics/landing-page.jpg)
 
@@ -94,9 +100,3 @@ All images uploaded by registered users are filtered through Cloudinary's modera
     </td>
   </tr>
 </table>
-
-<style type="text/css">
-  h1 {
-    color: blue;
-  }
-</style>
