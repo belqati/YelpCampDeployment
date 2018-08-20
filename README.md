@@ -38,11 +38,13 @@ For all installed packages see `package.json`. For further explanation see the r
   * [mLab](https://mlab.com/) for hosting a persistent MongoDB database
   * [Heroku](https://www.heroku.com/home) for app deployment
 
+
 <p style="clear: both;"></p>
 
 # Functional Summary
 <img src="public/pics/campgrounds-index.jpg" width="67%" style="padding-right: 5px" align="left">
 <img src="public/pics/users-index-responsive.jpg" width="33%" style="padding-left: 5px" align="right">
+
 
 <p style="clear: both;"></p>
 
@@ -54,12 +56,14 @@ The show page for each campground boasts a fully interactive map via the Google 
 
 The show page for each user is similar but simpler, with the authorization functionality for editing and deleting also present.
 
+
 <p style="clear: both;"></p>
 
 ## Search Results
 <img src="public/pics/search-results-responsive.jpg" width="33%" style="padding-right: 10px" align="left">
 
 The search feature is currently limited to campground names and usernames. Like the index pages for all campgrounds and all users, search results are displayed in paginated format. The default number of displayed search results can be adjusted in the `search.js` route by modifying the `perPage` variable. The same holds true for the campgrounds and users index pages via the `campgrounds.js` and `users.js`, routes, respectively.
+
 
 <p style="clear: both;"></p>
 
