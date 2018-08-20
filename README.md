@@ -30,8 +30,9 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
 # Select Packages and Features
 <table style="padding: 0;">
   <tr style="padding: 0">
-    <td style="padding: 0 20px 0 0"><img src="public/pics/landing-page-responsive.jpg"></td>
+    <td style="padding: 0 20px 0 0" width="33%"><img src="public/pics/landing-page-responsive.jpg"></td>
     <td style="padding: 0">
+      
 For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
 
   * `express` and `mongoose` for RESTful and CRUD strategies
@@ -62,7 +63,7 @@ For all installed packages see `package.json`. For further explanation see the r
     <td style="padding-right: 5px" width="33%"><img src="public/pics/campground-show-responsive.jpg"></td>
     <td style="padding-right: 5px" width="33%"><img src="public/pics/user-show-signed-in-responsive.jpg"></td>
     <td>
-      
+
 The show page for each campground boasts a fully interactive map via the Google API. On loggin in users can create campgrounds and contributed comments. Options for editing or deleting the campground and/or comments appear if the logged-in user posted them.
 
 The show page for each user is similar but simpler, with the authorization functionality for editing and deleting also present.
