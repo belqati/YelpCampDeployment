@@ -39,7 +39,7 @@ For all installed packages see `package.json`. For further explanation see the r
   * [Heroku](https://www.heroku.com/home) for app deployment
 
 
-<p style="clear: both;"></p>
+<h1 style="clear: both;">Functional Summary</h1>
 
 
 # Functional Summary
