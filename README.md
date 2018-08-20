@@ -1,5 +1,5 @@
 # Introduction
-![landing-page.jpg](public/pics/landing-page.jpg)
+<img src="public/pics/landing-page.jpg" width="85%" align="center">
 *YelpCampDeployment* is a refactored version of the yelpCamp project developed under the instruction of [Colt Steele](https://www.udemy.com/the-web-developer-bootcamp/), with a shoutout to Ian Schoonover and Zarko Maslaric. The project is my first fully deployed fullstack app, and is not intended for heavy use. It allows a user to accomplish the following:
 
   * browse campgrounds and registered users
@@ -25,7 +25,7 @@
 See the live version here: [https://evening-everglades-41057.herokuapp.com](https://evening-everglades-41057.herokuapp.com).
 
 # Select Packages and Features
-<img src="public/pics/landing-page-responsive.jpg" width="20%" style="float: left; padding-right: 25px">
+<img src="public/pics/landing-page-responsive.jpg" width="20%" style="padding-right: 25px" align="left">
 
 For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
 
@@ -38,9 +38,8 @@ For all installed packages see `package.json`. For further explanation see the r
   * [mLab](https://mlab.com/) for hosting a persistent MongoDB database
   * [Heroku](https://www.heroku.com/home) for app deployment
 
-
 # Functional Summary
+<img src="public/pics/campgrounds-index.jpg" width="85%" align="center">
 
-![campgrounds-index.jpg](public/pics/campgrounds-index.jpg)
 ## 
 
