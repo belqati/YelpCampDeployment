@@ -27,10 +27,10 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
 <hr>
 
 # Select Packages and Features
-<table style="border: 0; padding: 0;">
-  <tr style="border: 0; padding: 0">
-    <td style="border: 0; padding: 0 20px 0 0"><img src="public/pics/landing-page-responsive.jpg"></td>
-    <td style="border: 0; padding: 0">
+<table style="border: 0 solid; padding: 0;">
+  <tr style="border: 0 solid; padding: 0">
+    <td style="border: 0 solid; padding: 0 20px 0 0"><img src="public/pics/landing-page-responsive.jpg"></td>
+    <td style="border: 0 solid; padding: 0">
 For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
 
   * `express` and `mongoose` for RESTful and CRUD strategies
