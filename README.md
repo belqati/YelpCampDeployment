@@ -1,4 +1,4 @@
-##### TOC
+# TOC
 
   * [Introduction](#introduction)
   * [Select Packages and Features](#select-packages-and-features)
