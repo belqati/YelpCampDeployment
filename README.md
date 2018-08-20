@@ -2,6 +2,9 @@
   table {
     border-collapse: collapse;
   }
+  table, tr, td {
+    border: 0;
+  }
 </style>
 
 # Introduction
