@@ -28,20 +28,6 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
 <hr>
 
 # Select Packages and Features
-| <img src="public/pics/landing-page-responsive.jpg" width="33%"> | For all installed packages see `package.json`. |
-| --- | --- |
-|                                                                 | * `express` and `mongoose` for RESTful and CRUD strategies |
-|                                                                 | * `passport` for local authentication/authorization |
-|                                                                 | * `connect-flash` for front-end error handling |
-|                                                                 | * `ejs` for templating |
-|                                                                 | * `node-geocoder` for implementing Google Maps APIs |
-|                                                                 | * `cloudinary` for hosting and moderating user uploaded images |
-|                                                                 | * [mLab](https://mlab.com/) for hosting a persistent MongoDB database |
-|                                                                 | * [Heroku](https://www.heroku.com/home) for app deployment |
-
-<hr>
-
-# Select Packages and Features
 <table>
   <tr style="padding: 0">
     <td style="padding: 0 20px 0 0" width="33%"><img src="public/pics/landing-page-responsive.jpg"></td>
@@ -108,3 +94,9 @@ All images uploaded by registered users are filtered through Cloudinary's modera
     </td>
   </tr>
 </table>
+
+<style type="text/css">
+  h1 {
+    color: blue;
+  }
+</style>
