@@ -102,7 +102,9 @@ All images uploaded by registered users are filtered through Cloudinary's modera
 </table>
 
 <style type="text/css">
-
+  table {
+    border-collapse: collapse;
+  }
   table, tr, td {
     border-collapse: collapse;
     border: hidden;
