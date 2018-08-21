@@ -3,8 +3,8 @@
 // N.B.: geocoder api uses two keys, one which appears publicly in show.ejs url--thus the PUBLIC VERSION MUST ADJUST RESTRICTIONS VIA GOOGLE DEV DASHBOARD
 require("dotenv").config();
 
-// PORT variable for Heroku or local host
-let port = process.env.PORT || 3000;
+// PORT variable for Heroku etc. or other host
+let port = process.env.PORT || process.env.IP;
 // DATABASEURL variable for Heroku and local host: provides means for two different versions of the DB based on its environment; redundancy is intentional as backup should anything happen to db (here for localhost)
 let dburl = process.env.DATABASEURL || "mongodb://localhost/yelpCamp";
 

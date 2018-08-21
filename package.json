@@ -1,13 +1,13 @@
 {
-  "name": "v01",
+  "name": "yelpCampDeployment",
   "version": "1.0.0",
-  "description": "YelpCamp v01",
+  "description": "yelpCamp app",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "me",
+  "author": "belqati",
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.1",
