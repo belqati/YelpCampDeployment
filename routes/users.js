@@ -45,6 +45,7 @@ router.get("/", function(req, res) {
         req.flash("error", err.message);
       } else {
         res.render("users/index", {
+          path: "users",
           users: allUsers,
           current: pageNumber,
           pages: Math.ceil(count / perPage),

@@ -58,6 +58,7 @@ router.get("/", function(req, res) {
         return res.redirect("back");
       } else {
         res.render("campgrounds/index", {
+          path: "campgrounds",
           campgrounds: allCampgrounds,
           current: pageNumber,
           pages: Math.ceil(count / perPage),

@@ -34,6 +34,7 @@ router.get("/", function(req, res) {
               return res.redirect("back");
             }
             res.render("searchResults", {
+              path: "searchResults",
               noMatch: noMatch,
               campgrounds: allCampgrounds,
               users: allUsers,
