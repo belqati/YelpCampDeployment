@@ -44,7 +44,7 @@ See the live version here: [https://evening-everglades-41057.herokuapp.com](http
     <td style="padding: 0 20px 0 0" width="33%"><img src="public/pics/landing-page-responsive.jpg"></td>
     <td style="padding: 0">
 
-For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
+This app leverages the following strategies. For all installed packages see `package.json`. For further explanation see the relevant dev notes in each route for the package in question.
 
   * `express` and `mongoose` for RESTful and CRUD strategies
   * `passport` for local authentication/authorization
@@ -54,6 +54,7 @@ For all installed packages see `package.json`. For further explanation see the r
   * `cloudinary` for hosting and moderating user uploaded images
   * [mLab](https://mlab.com/) for hosting a persistent MongoDB database
   * [Heroku](https://www.heroku.com/home) for app deployment
+
     </td>
   </tr>
 </table>
