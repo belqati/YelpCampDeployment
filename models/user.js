@@ -19,7 +19,13 @@ let userSchema = new mongoose.Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
-  userBackground: String
+  userBackground: String,
+  facebook: {
+    fid: String,
+    ftoken: String,
+    femail: String,
+    fusername: String
+  }
 });
 
 // adds passport methods to schema via mongoose

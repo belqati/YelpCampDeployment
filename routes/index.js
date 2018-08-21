@@ -18,7 +18,7 @@ router.get("/login", function(req, res) {
   res.render("login");
 });
 
-// Login logic via passport
+// Login logic for passport-local
 router.post("/login", passport.authenticate("local", 
   {
     successRedirect: "/campgrounds",
@@ -27,6 +27,9 @@ router.post("/login", passport.authenticate("local",
     failureFlash: true
   }), function(req, res) {
 });
+
+// Login logic for passport-facebook
+// perh for later dev
 
 // Logout route
 router.get("/logout", function(req, res) {
